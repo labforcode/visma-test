@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Visma.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Visma.Api.Extensions.DependenceInjection">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Extensions.DependenceInjection.AddNativeDependenceInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Método de Extensão de IServiceCollection para adicionar o container de injeção de dependência nativo
+            </summary>
+        </member>
+        <member name="T:Visma.Api.Startup">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.Startup.Configuration">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <inheritdoc/>
+        </member>
+        <member name="T:TCash.WebApi.Program">
+            <inheritdoc/>
+        </member>
+        <member name="M:TCash.WebApi.Program.Main(System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:TCash.WebApi.Program.CreateHostBuilder(System.String[])">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

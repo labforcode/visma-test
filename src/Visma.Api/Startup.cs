@@ -1,4 +1,6 @@
-﻿namespace Visma.Api;
+﻿using Visma.Api.Extensions;
+
+namespace Visma.Api;
 
 ///<inheritdoc/>
 public class Startup
@@ -21,7 +23,7 @@ public class Startup
         //services.AddAutoMapperConfiguration();
         //services.AddJwtConfiguration();
         //services.AddSwaggerConfiguration();
-        //services.AddNativeDependenceInjection(Configuration);
+        services.AddNativeDependenceInjection(Configuration);
         //services.AddMvc(options => options.Filters.Add<NotificationFilter>())
         //        .AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull);
 

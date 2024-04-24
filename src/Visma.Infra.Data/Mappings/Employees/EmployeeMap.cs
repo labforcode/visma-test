@@ -35,8 +35,6 @@ namespace Visma.Infra.Data.Mappings.Employees
                    .HasColumnName("boss")
                    .IsRequired();
 
-            //TODO mapear endereço que é um value object
-
             builder.Property(c => c.CurrentlySalary)
                    .HasColumnName("currently_salary")
                    .IsRequired();
@@ -44,6 +42,10 @@ namespace Visma.Infra.Data.Mappings.Employees
             builder.Property(c => c.Role)
                    .HasColumnName("role")
                    .IsRequired();
+
+            builder.HasOne(c => c.HomeAddress)
+                   .WithOne(c => c.Employee)
+                   .HasForeignKey<Employee>(c => c.Id);
         }
     }
 }
