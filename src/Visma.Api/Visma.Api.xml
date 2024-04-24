@@ -4,13 +4,74 @@
         <name>Visma.Api</name>
     </assembly>
     <members>
+        <member name="T:Visma.Api.DTOs.Common.ResponseDto">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.DTOs.Common.ResponseDto.Code">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.DTOs.Common.ResponseDto.Success">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.DTOs.Common.ResponseDto.Data">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.DTOs.Common.ResponseDto.Notifications">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.DTOs.Common.ResponseDto.Errors">
+            <inheritdoc/>
+        </member>
+        <member name="P:Visma.Api.DTOs.Common.ResponseDto.TotalRecords">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.DTOs.Common.ResponseDto.CreateResponseToData(System.Int32,System.Object,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.DTOs.Common.ResponseDto.CreateResponseToNotification(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.DTOs.Common.ResponseDto.CreateResponseToError(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.DTOs.Common.ResponseDto.SerializeObject(Visma.Api.DTOs.Common.ResponseDto)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Visma.Api.Extensions.Cors">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Extensions.Cors.AddCorsConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
         <member name="T:Visma.Api.Extensions.DependenceInjection">
             <inheritdoc/>
         </member>
         <member name="M:Visma.Api.Extensions.DependenceInjection.AddNativeDependenceInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Método de Extensão de IServiceCollection para adicionar o container de injeção de dependência nativo
-            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="T:Visma.Api.Extensions.Jwt">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Extensions.Jwt.AddJwtConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Visma.Api.Extensions.OpenApi">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Extensions.OpenApi.AddOpenApiConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Extensions.OpenApi.UserSwaggerSetup(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Visma.Api.Filters.NotificationFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Filters.NotificationFilter.#ctor(Visma.Domain.Core.Notifications.NotificationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Filters.NotificationFilter.OnResultExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ResultExecutionDelegate)">
+            <inheritdoc/>
         </member>
         <member name="T:Visma.Api.Startup">
             <inheritdoc/>

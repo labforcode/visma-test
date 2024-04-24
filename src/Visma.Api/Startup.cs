@@ -1,4 +1,6 @@
-﻿using Visma.Api.Extensions;
+﻿using System.Text.Json.Serialization;
+using Visma.Api.Extensions;
+using Visma.Api.Filters;
 
 namespace Visma.Api;
 
@@ -14,20 +16,16 @@ public class Startup
     ///<inheritdoc/>
     public IConfiguration Configuration { get; }
 
-
     ///<inheritdoc/>
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllers();
-        //services.AddCorsConfiguration();
-        //services.AddAutoMapperConfiguration();
-        //services.AddJwtConfiguration();
-        //services.AddSwaggerConfiguration();
+        services.AddCorsConfiguration();
+        services.AddJwtConfiguration();
+        services.AddOpenApiConfiguration();
         services.AddNativeDependenceInjection(Configuration);
-        //services.AddMvc(options => options.Filters.Add<NotificationFilter>())
-        //        .AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull);
-
-
+        services.AddMvc(options => options.Filters.Add<NotificationFilter>())
+                .AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
     }
 
     ///<inheritdoc/>
@@ -44,8 +42,7 @@ public class Startup
         {
             endpoints.MapControllers();
         });
-
-        //app.UserSwaggerSetup();
+        app.UserSwaggerSetup();
     }
 }
 
