@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Visma.Domain.Core.Notifications;
 using Visma.Infra.CrossCutting.Common.Settings;
 
 namespace Visma.Infra.CrossCutting.IoC
@@ -11,16 +12,16 @@ namespace Visma.Infra.CrossCutting.IoC
             AppSettingsDto.ParseAppSettings(configuration);
             services.AddSingleton<AppSettingsDto>();
 
-            //services.AddScoped<NotificationContext>();
+            services.AddScoped<NotificationContext>();
             //services.AddScoped<ITokenService, TokenService>();
 
             DbContextDI.RegisterContext(services);
 
-            //UoWDI.RegisterUoW(services);
+            UoWDI.RegisterUoW(services);
 
             //DomainServicesDI.RegisterDomainServices(services);
 
-            //CommandsDI.RegisterCommands(services);
+            CommandsDI.RegisterCommands(services);
 
             //RepositoriesDI.RegisterRepositories(services);
 

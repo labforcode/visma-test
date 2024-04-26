@@ -13,7 +13,5 @@ namespace Visma.Domain.Core.Commands
         {
             Timestamp = DateTime.Now;
         }
-
-        public abstract bool IsValida();
     }
 }
