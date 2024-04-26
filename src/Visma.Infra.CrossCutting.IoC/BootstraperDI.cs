@@ -11,8 +11,6 @@ namespace Visma.Infra.CrossCutting.IoC
             AppSettingsDto.ParseAppSettings(configuration);
             services.AddSingleton<AppSettingsDto>();
 
-            var teste = AppSettingsDto.Settings;
-
             //services.AddScoped<NotificationContext>();
             //services.AddScoped<ITokenService, TokenService>();
 
