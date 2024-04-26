@@ -7,7 +7,7 @@ namespace Visma.Infra.CrossCutting.IoC
 {
     public static class CommandsDI
     {
-        public static void RegisterCommands(IServiceCollection services)
+        public static void RegisterCommands(this IServiceCollection services)
         {
             services.AddScoped<IRequestHandler<AddingEmployeeCommand, bool>, AddingEmployeeCommandHandler>();
             services.AddScoped<IRequestHandler<DeletingEmployeeCommand, bool>, DeletingEmployeeCommandHandler>();

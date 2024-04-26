@@ -6,7 +6,7 @@ namespace Visma.Infra.CrossCutting.IoC
 {
     public static class UoWDI
     {
-        public static void RegisterUoW(IServiceCollection services)
+        public static void RegisterUoW(this IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

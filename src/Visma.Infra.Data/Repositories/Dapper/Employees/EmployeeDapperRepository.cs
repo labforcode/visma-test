@@ -2,7 +2,7 @@
 
 namespace Visma.Infra.Data.Repositories.Dapper.Employees
 {
-    public class EmployeeDapperRepository : IEmployeeDapperRepository
+    public class EmployeeDapperRepository : RepositoryBaseDapper, IEmployeeDapperRepository
     {
     }
 }

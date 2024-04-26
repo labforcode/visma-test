@@ -1,6 +1,9 @@
-﻿namespace Visma.Domain.Interfaces.Repositories.EFCore.Employees
+﻿using Visma.Domain.Core.Interfaces.Repositories.Common;
+using Visma.Domain.Entities.Employees;
+
+namespace Visma.Domain.Interfaces.Repositories.EFCore.Employees
 {
-    public interface IEmployeeEFCoreRepository
+    public interface IEmployeeEFCoreRepository : IRepositoryBase<Employee>
     {
     }
 }

@@ -15,15 +15,10 @@ namespace Visma.Infra.CrossCutting.IoC
             services.AddScoped<NotificationContext>();
             //services.AddScoped<ITokenService, TokenService>();
 
-            DbContextDI.RegisterContext(services);
-
-            UoWDI.RegisterUoW(services);
-
-            //DomainServicesDI.RegisterDomainServices(services);
-
-            CommandsDI.RegisterCommands(services);
-
-            //RepositoriesDI.RegisterRepositories(services);
+            services.RegisterContext();
+            services.RegisterUoW();
+            services.RegisterCommands();
+            services.RegisterRepositories();
 
             //QueriesDI.RegisterQueries(services);
         }
