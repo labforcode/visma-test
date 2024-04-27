@@ -33,6 +33,13 @@ namespace Visma.HR.Domain.Commands.Employees.Handlers
                     return false;
                 }
 
+                var isRegistered = await _employeeDapperRepository.CheckEmployeeWasRegistered(employee.FirstName, employee.LastName);
+                if (isRegistered)
+                {
+                    FailNotify($"There is already an employee with the name {employee.FirstName} {employee.LastName}");
+                    return false;
+                }
+
                 _employeeRepository.Add(employee);
                 if (Commit() is false) return false;
 

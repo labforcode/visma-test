@@ -16,19 +16,9 @@ namespace Visma.HR.Application.DTOs.Employees
 
         public string Role { get; set; }
 
+        public string HomeAddress { get; set; }
+
         public string BossId { get; set; }
-
-        public string PostalCode { get; set; }
-
-        public string Number { get; set; }
-
-        public string Street { get; set; }
-
-        public string City { get; set; }
-
-        public string State { get; set; }
-
-        public string Country { get; set; }
 
         public static AddingEmployeeCommand Parse(AddingEmployeeDto dto) => new AddingEmployeeCommand(dto.FirstName,
                                                                                                       dto.LastName,
@@ -36,12 +26,7 @@ namespace Visma.HR.Application.DTOs.Employees
                                                                                                       dto.EmploymentDate,
                                                                                                       dto.CurrentlySalary,
                                                                                                       dto.Role,
-                                                                                                      dto.BossId,
-                                                                                                      dto.PostalCode,
-                                                                                                      dto.Number,
-                                                                                                      dto.Street,
-                                                                                                      dto.City,
-                                                                                                      dto.State,
-                                                                                                      dto.Country);
+                                                                                                      dto.HomeAddress,
+                                                                                                      dto.BossId);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Visma.HR.Application.DTOs.Employees
+﻿using Visma.HR.Domain.Commands.Employees.Actions;
+
+namespace Visma.HR.Application.DTOs.Employees
 {
     public class UpdatingEmployeeDto
     {
@@ -14,18 +16,17 @@
 
         public string Role { get; set; }
 
-        public Guid BossId { get; set; }
+        public string HomeAddress { get; set; }
 
-        public string PostalCode { get; set; }
+        public string BossId { get; set; }
 
-        public string Number { get; set; }
-
-        public string Street { get; set; }
-
-        public string City { get; set; }
-
-        public string State { get; set; }
-
-        public string Country { get; set; }
+        public static UpdatingEmployeeCommand Parse(UpdatingEmployeeDto dto) => new UpdatingEmployeeCommand(dto.Id,
+                                                                                                            dto.FirstName,
+                                                                                                            dto.LastName,
+                                                                                                            dto.BirthDate,
+                                                                                                            dto.EmploymentDate,
+                                                                                                            dto.Role,
+                                                                                                            dto.HomeAddress,
+                                                                                                            dto.BossId);
     }
 }

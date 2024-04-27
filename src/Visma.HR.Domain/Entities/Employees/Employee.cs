@@ -1,6 +1,5 @@
 ﻿using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Entities;
-using Visma.HR.Domain.Entities.Addresses;
 using Visma.HR.Domain.Validators.Employees.Actions;
 
 namespace Visma.HR.Domain.Entities.Employees
@@ -19,9 +18,9 @@ namespace Visma.HR.Domain.Entities.Employees
 
         public string Role { get; private set; }
 
-        public Guid BossId { get; private set; }
+        public string HomeAddress { get; private set; }
 
-        public virtual Address HomeAddress { get; private set; }
+        public Guid BossId { get; private set; }
 
         private Employee(string firstName,
                          string lastName,
@@ -29,13 +28,8 @@ namespace Visma.HR.Domain.Entities.Employees
                          DateTime employmentDate,
                          decimal currentlySalary,
                          string role,
-                         string bossId,
-                         string postalCode,
-                         string number,
-                         string street,
-                         string city,
-                         string state,
-                         string country)
+                         string homeAddress,
+                         string bossId)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -43,9 +37,10 @@ namespace Visma.HR.Domain.Entities.Employees
             EmploymentDate = employmentDate;
             CurrentlySalary = currentlySalary;
             Role = role;
+            HomeAddress = homeAddress;
             BossId = CreateBossId(bossId);
-            HomeAddress = Address.Create(postalCode, number, street, city, state, country, Id);
 
+            //TO DO
             Validate(this, new CreateEmployeeValidator());
         }
 
@@ -59,15 +54,26 @@ namespace Visma.HR.Domain.Entities.Employees
                                 command.EmploymentDate,
                                 command.CurrentlySalary,
                                 command.Role,
-                                command.BossId,
-                                command.PostalCode,
-                                command.Number,
-                                command.Street,
-                                command.City,
-                                command.State,
-                                command.Country);
+                                command.HomeAddress,
+                                command.BossId);
+        }
+
+        public void Update(UpdatingEmployeeCommand command)
+        {
+            FirstName = command.FirstName;
+            LastName = command.LastName;
+            BirthDate = command.BirthDate;
+            EmploymentDate = command.EmploymentDate;
+            Role = command.Role;
+            HomeAddress = command.HomeAddress;
+            BossId = UpdateBossId(command.BossId);
+
+            //TO DO
+            Validate(this, new UpdateEmployeeValidator());
         }
 
         private Guid CreateBossId(string bossId) => string.IsNullOrEmpty(bossId) ? Guid.Empty : Guid.Parse(bossId);
+
+        private Guid UpdateBossId(string bossId) => string.IsNullOrEmpty(bossId) ? BossId : Guid.Parse(bossId);
     }
 }

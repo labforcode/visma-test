@@ -31,13 +31,13 @@ namespace Visma.HR.Api.Controllers.Employees
                 if (ModelState.IsValid is false)
                 {
                     NotifyModelStateErrors();
-                    return Ok();
+                    return ResponseOk();
                 }
 
                 await _employeeAppService.AddingEmployeeAsync(dto);
 
 
-                return Created();
+                return ResponseCreated();
             }
             catch
             {
@@ -59,12 +59,12 @@ namespace Visma.HR.Api.Controllers.Employees
                 if (ModelState.IsValid is false)
                 {
                     NotifyModelStateErrors();
-                    return Ok();
+                    return ResponseOk();
                 }
 
                 await _employeeAppService.UpdatingEmployeeAsync(dto);
 
-                return Ok();
+                return ResponseOk();
             }
             catch
             {
@@ -86,12 +86,12 @@ namespace Visma.HR.Api.Controllers.Employees
                 if (ModelState.IsValid is false)
                 {
                     NotifyModelStateErrors();
-                    return Ok();
+                    return ResponseOk();
                 }
 
                 await _employeeAppService.UpdatingEmployeeSalaryAsync(dto);
 
-                return Ok();
+                return ResponseOk();
             }
             catch
             {
@@ -112,7 +112,7 @@ namespace Visma.HR.Api.Controllers.Employees
                 //TO DO
                 await _employeeAppService.DeletingEmployeeAsync(id);
 
-                return Ok();
+                return ResponseOk();
             }
             catch
             {
@@ -131,9 +131,9 @@ namespace Visma.HR.Api.Controllers.Employees
         {
             try
             {
-                await _employeeAppService.GettingEmployeeAsync(id);
+                var employee = await _employeeAppService.GettingEmployeeAsync(id);
 
-                return Ok();
+                return ResponseOk(employee);
             }
             catch
             {
@@ -160,7 +160,7 @@ namespace Visma.HR.Api.Controllers.Employees
 
                 await _employeeAppService.GettingEmployeesAsync(pageSize, index, name, startBirthDate, endBirthDate, bossId);
 
-                return Ok();
+                return ResponseOk();
             }
             catch
             {
@@ -181,7 +181,7 @@ namespace Visma.HR.Api.Controllers.Employees
             {
                 await _employeeAppService.GettingInfoRoleAsync(role);
 
-                return Ok();
+                return ResponseOk();
             }
             catch
             {

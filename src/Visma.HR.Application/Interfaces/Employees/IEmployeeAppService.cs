@@ -1,4 +1,5 @@
 ﻿using Visma.HR.Application.DTOs.Employees;
+using Visma.HR.Application.ViewModels.Employees;
 
 namespace Visma.HR.Application.Interfaces.Employees
 {
@@ -37,7 +38,7 @@ namespace Visma.HR.Application.Interfaces.Employees
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task GettingEmployeeAsync(Guid id);
+        Task<EmployeeViewModel> GettingEmployeeAsync(Guid id);
 
         /// <summary>
         /// Getting employee by filter

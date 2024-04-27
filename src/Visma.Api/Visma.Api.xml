@@ -13,10 +13,10 @@
         <member name="M:Visma.HR.Api.Controllers.ApiController.NotifyModelStateErrors">
             <inheritdoc/>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.ApiController.Ok(System.Object,System.Int32)">
+        <member name="M:Visma.HR.Api.Controllers.ApiController.ResponseOk(System.Object,System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.ApiController.Created">
+        <member name="M:Visma.HR.Api.Controllers.ApiController.ResponseCreated">
             <inheritdoc/>
         </member>
         <member name="T:Visma.HR.Api.Controllers.Employees.EmployeeController">

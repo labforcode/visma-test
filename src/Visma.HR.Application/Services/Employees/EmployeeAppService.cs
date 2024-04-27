@@ -1,16 +1,21 @@
 ﻿using Visma.HR.Application.DTOs.Employees;
 using Visma.HR.Application.Interfaces.Employees;
+using Visma.HR.Application.ViewModels.Employees;
 using Visma.HR.Domain.Core.Interfaces.Bus;
+using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
 
 namespace Visma.HR.Application.Services.Employees
 {
     public class EmployeeAppService : IEmployeeAppService
     {
         private readonly IMediatorHandler _bus;
+        private readonly IEmployeeDapperRepository _employeeDapperRepository;
 
-        public EmployeeAppService(IMediatorHandler bus)
+        public EmployeeAppService(IMediatorHandler bus,
+                                  IEmployeeDapperRepository employeeDapperRepository)
         {
             _bus = bus;
+            _employeeDapperRepository = employeeDapperRepository;
         }
 
         public async Task AddingEmployeeAsync(AddingEmployeeDto dto)
@@ -19,9 +24,10 @@ namespace Visma.HR.Application.Services.Employees
             await _bus.SendCommandAsync(command);
         }
 
-        public Task UpdatingEmployeeAsync(UpdatingEmployeeDto dto)
+        public async Task UpdatingEmployeeAsync(UpdatingEmployeeDto dto)
         {
-            throw new NotImplementedException();
+            var command = UpdatingEmployeeDto.Parse(dto);
+            await _bus.SendCommandAsync(command);
         }
 
         public Task UpdatingEmployeeSalaryAsync(UpdatingEmployeeSalaryDto dto)
@@ -34,9 +40,12 @@ namespace Visma.HR.Application.Services.Employees
             throw new NotImplementedException();
         }
 
-        public Task GettingEmployeeAsync(Guid id)
+        public async Task<EmployeeViewModel> GettingEmployeeAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var employee = await _employeeDapperRepository.GettingEmployee(id);
+            if (employee is null) return new EmployeeViewModel();
+
+            return EmployeeViewModel.Parse(employee);
         }
 
         public Task GettingEmployeesAsync(int pageSize, int index, string name, DateTime startBirthDate, DateTime endBirthDate, string bossId)

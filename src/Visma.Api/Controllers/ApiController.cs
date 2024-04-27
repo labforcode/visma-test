@@ -24,7 +24,7 @@ namespace Visma.HR.Api.Controllers
         }
 
         /// <inheritdoc/>
-        protected IActionResult Ok(object obj = null, int totalRecords = 1)
+        protected IActionResult ResponseOk(object obj = null, int totalRecords = 1)
         {
             if (obj == null) totalRecords = 0;
 
@@ -32,6 +32,6 @@ namespace Visma.HR.Api.Controllers
         }
 
         /// <inheritdoc/>
-        protected IActionResult Created() => Created("", null);
+        protected IActionResult ResponseCreated() => Created("", null);
     }
 }

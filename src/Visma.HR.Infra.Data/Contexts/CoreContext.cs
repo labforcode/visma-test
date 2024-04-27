@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Visma.HR.Domain.Entities.Addresses;
 using Visma.HR.Domain.Entities.Employees;
-using Visma.HR.Infra.Data.Mappings.Addresses;
 using Visma.HR.Infra.Data.Mappings.Employees;
 
 namespace Visma.HR.Infra.Data.Contexts
@@ -9,8 +7,6 @@ namespace Visma.HR.Infra.Data.Contexts
     public class CoreContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
-
-        public DbSet<Address> Addresses { get; set; }
 
         public CoreContext(DbContextOptions<CoreContext> options) : base(options) { }
 
@@ -20,7 +16,6 @@ namespace Visma.HR.Infra.Data.Contexts
 
             builder.HasDefaultSchema("public");
             builder.ApplyConfiguration(new EmployeeMap());
-            builder.ApplyConfiguration(new AddressMap());
         }
     }
 }

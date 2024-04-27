@@ -17,10 +17,12 @@ namespace Visma.HR.Infra.Data.Mappings.Employees
 
             builder.Property(c => c.FirstName)
                    .HasColumnName("first_name")
+                   .HasColumnType("VARCHAR(50)")
                    .IsRequired();
 
             builder.Property(c => c.LastName)
                    .HasColumnName("last_name")
+                   .HasColumnType("VARCHAR(50)")
                    .IsRequired();
 
             builder.Property(c => c.BirthDate)
@@ -39,12 +41,13 @@ namespace Visma.HR.Infra.Data.Mappings.Employees
                    .HasColumnName("role")
                    .IsRequired();
 
+            builder.Property(c => c.HomeAddress)
+                   .HasColumnName("home_address")
+                   .HasColumnType("VARCHAR(150)")
+                   .IsRequired();
+
             builder.Property(c => c.BossId)
                    .HasColumnName("boss_id");
-
-            builder.HasOne(c => c.HomeAddress)
-                   .WithOne(c => c.Employee)
-                   .HasForeignKey<Employee>(c => c.Id);
         }
     }
 }

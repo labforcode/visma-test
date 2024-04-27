@@ -6,6 +6,6 @@
 
         public const string Failure = "Operation not performed, there was a failure during the process";
 
-        public const string Success = "Registration completed successfully";
+        public const string Success = "Request completed successfully";
     }
 }

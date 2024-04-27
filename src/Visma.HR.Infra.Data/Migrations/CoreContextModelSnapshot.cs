@@ -23,55 +23,10 @@ namespace Visma.HR.Infra.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Visma.HR.Domain.Entities.Addresses.Address", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("city");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("country");
-
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("employee_id");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("number");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("postal_code");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("state");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("street");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("addresses", "public");
-                });
-
             modelBuilder.Entity("Visma.HR.Domain.Entities.Employees.Employee", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
@@ -93,12 +48,17 @@ namespace Visma.HR.Infra.Data.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("VARCHAR(50)")
                         .HasColumnName("first_name");
+
+                    b.Property<string>("HomeAddress")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(150)")
+                        .HasColumnName("home_address");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("VARCHAR(50)")
                         .HasColumnName("last_name");
 
                     b.Property<string>("Role")
@@ -109,23 +69,6 @@ namespace Visma.HR.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("employees", "public");
-                });
-
-            modelBuilder.Entity("Visma.HR.Domain.Entities.Employees.Employee", b =>
-                {
-                    b.HasOne("Visma.HR.Domain.Entities.Addresses.Address", "HomeAddress")
-                        .WithOne("Employee")
-                        .HasForeignKey("Visma.HR.Domain.Entities.Employees.Employee", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("HomeAddress");
-                });
-
-            modelBuilder.Entity("Visma.HR.Domain.Entities.Addresses.Address", b =>
-                {
-                    b.Navigation("Employee")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
