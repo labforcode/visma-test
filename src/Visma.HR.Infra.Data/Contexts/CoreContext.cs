@@ -12,8 +12,6 @@ namespace Visma.HR.Infra.Data.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
             builder.HasDefaultSchema("public");
             builder.ApplyConfiguration(new EmployeeMap());
         }

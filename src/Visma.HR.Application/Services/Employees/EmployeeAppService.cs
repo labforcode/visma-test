@@ -1,6 +1,7 @@
 ﻿using Visma.HR.Application.DTOs.Employees;
 using Visma.HR.Application.Interfaces.Employees;
 using Visma.HR.Application.ViewModels.Employees;
+using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Interfaces.Bus;
 using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
 
@@ -35,9 +36,10 @@ namespace Visma.HR.Application.Services.Employees
             throw new NotImplementedException();
         }
 
-        public Task DeletingEmployeeAsync(Guid id)
+        public async Task DeletingEmployeeAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var command = new DeletingEmployeeCommand(id);
+            await _bus.SendCommandAsync(command);
         }
 
         public async Task<EmployeeViewModel> GettingEmployeeAsync(Guid id)

@@ -9,6 +9,7 @@ namespace Visma.HR.Infra.CrossCutting.IoC
     {
         public static void RegisterContext(this IServiceCollection services)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             services.AddDbContext<CoreContext>(opt => opt.UseNpgsql(AppSettingsDto.Settings.ConnectionStrings.VismaDb));
             services.AddScoped<CoreContext>();
         }

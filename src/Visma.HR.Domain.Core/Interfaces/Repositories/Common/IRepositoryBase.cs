@@ -6,6 +6,8 @@
 
         void Update(T entity);
 
+        void Remove(T entity);
+
         void Dispose();
     }
 }

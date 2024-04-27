@@ -39,6 +39,18 @@ namespace Visma.HR.Infra.Data.Repositories.EFCore
             }
         }
 
+        public void Remove(T entity)
+        {
+            try
+            {
+                _dbSet.Remove(entity);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);

@@ -36,7 +36,6 @@ namespace Visma.HR.Api.Controllers.Employees
 
                 await _employeeAppService.AddingEmployeeAsync(dto);
 
-
                 return ResponseCreated();
             }
             catch
