@@ -72,6 +72,14 @@ namespace Visma.HR.Domain.Entities.Employees
             Validate(this, new UpdateEmployeeValidator());
         }
 
+        public void UpdateSalary(UpdatingEmployeeSalaryCommand command)
+        {
+            CurrentlySalary = command.CurrentlySalary;
+
+            //TO DO
+            Validate(this, new UpdateEmployeeSalaryValidator());
+        }
+
         private Guid CreateBossId(string bossId) => string.IsNullOrEmpty(bossId) ? Guid.Empty : Guid.Parse(bossId);
 
         private Guid UpdateBossId(string bossId) => string.IsNullOrEmpty(bossId) ? BossId : Guid.Parse(bossId);

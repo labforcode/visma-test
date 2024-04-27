@@ -31,9 +31,10 @@ namespace Visma.HR.Application.Services.Employees
             await _bus.SendCommandAsync(command);
         }
 
-        public Task UpdatingEmployeeSalaryAsync(UpdatingEmployeeSalaryDto dto)
+        public async Task UpdatingEmployeeSalaryAsync(UpdatingEmployeeSalaryDto dto)
         {
-            throw new NotImplementedException();
+            var command = UpdatingEmployeeSalaryDto.Parse(dto);
+            await _bus.SendCommandAsync(command);
         }
 
         public async Task DeletingEmployeeAsync(Guid id)
