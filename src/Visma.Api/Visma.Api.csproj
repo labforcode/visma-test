@@ -11,11 +11,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>1701;1702;8602;8604;8618</NoWarn>
+    <NoWarn>1701;1702;8602;8604;8618;8625</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>1701;1702;8602;8604;8618</NoWarn>
+    <NoWarn>1701;1702;8602;8604;8618;8625</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Visma.HR.Application\Visma.HR.Application.csproj" />
     <ProjectReference Include="..\Visma.HR.Infra.CrossCutting.IoC\Visma.HR.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
 

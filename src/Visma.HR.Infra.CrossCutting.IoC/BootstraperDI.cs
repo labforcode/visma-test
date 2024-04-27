@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Visma.HR.Domain.Core.Interfaces.Bus;
 using Visma.HR.Domain.Core.Notifications;
+using Visma.HR.Infra.CrossCutting.Bus;
 using Visma.HR.Infra.CrossCutting.Common.Settings;
 
 namespace Visma.HR.Infra.CrossCutting.IoC
@@ -11,16 +14,18 @@ namespace Visma.HR.Infra.CrossCutting.IoC
         {
             AppSettingsDto.ParseAppSettings(configuration);
             services.AddSingleton<AppSettingsDto>();
-
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<NotificationContext>();
-            //services.AddScoped<ITokenService, TokenService>();
-
+            services.AddTransient<IMediatorHandler, InMemoryBus>();
             services.RegisterContext();
+            services.RegisterApplications();
             services.RegisterUoW();
             services.RegisterCommands();
             services.RegisterRepositories();
 
-            //QueriesDI.RegisterQueries(services);
+
+            //TO DO
+            //services.AddScoped<ITokenService, TokenService>();
         }
     }
 }

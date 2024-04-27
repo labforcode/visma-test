@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using Visma.HR.Domain.Commands.Employee.Actions;
+using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Interfaces.UoW;
 using Visma.HR.Domain.Core.Notifications;
 
-namespace Visma.HR.Domain.Commands.Employee.Handlers
+namespace Visma.HR.Domain.Commands.Employees.Handlers
 {
     public class DeletingEmployeeCommandHandler : CommandHandler,
                                                   IRequestHandler<DeletingEmployeeCommand, bool>

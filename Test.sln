@@ -30,17 +30,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HumanResources", "HumanReso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.Api", "src\Visma.Api\Visma.Api.csproj", "{178B3F77-7D89-4601-BC9B-1736D29524B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Domain", "src\Visma.HR.Domain\Visma.HR.Domain.csproj", "{EDCE9AE3-D516-4DBB-B927-07E8476A05DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.HR.Domain", "src\Visma.HR.Domain\Visma.HR.Domain.csproj", "{EDCE9AE3-D516-4DBB-B927-07E8476A05DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Domain.Core", "src\Visma.HR.Domain.Core\Visma.HR.Domain.Core.csproj", "{985EFCFB-66C6-4203-A1AA-8780DECB035F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.HR.Domain.Core", "src\Visma.HR.Domain.Core\Visma.HR.Domain.Core.csproj", "{985EFCFB-66C6-4203-A1AA-8780DECB035F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Infra.Data", "src\Visma.HR.Infra.Data\Visma.HR.Infra.Data.csproj", "{20677C48-4CAA-4CD0-A07C-A4953C52D191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.HR.Infra.Data", "src\Visma.HR.Infra.Data\Visma.HR.Infra.Data.csproj", "{20677C48-4CAA-4CD0-A07C-A4953C52D191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Infra.CrossCutting.IoC", "src\Visma.HR.Infra.CrossCutting.IoC\Visma.HR.Infra.CrossCutting.IoC.csproj", "{3124CB32-E8F8-4502-837E-471CD21C5A0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.HR.Infra.CrossCutting.IoC", "src\Visma.HR.Infra.CrossCutting.IoC\Visma.HR.Infra.CrossCutting.IoC.csproj", "{3124CB32-E8F8-4502-837E-471CD21C5A0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Infra.CrossCutting.Common", "src\Visma.HR.Infra.CrossCutting.Common\Visma.HR.Infra.CrossCutting.Common.csproj", "{111502F6-F999-4325-9CE4-525502A25B24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.HR.Infra.CrossCutting.Common", "src\Visma.HR.Infra.CrossCutting.Common\Visma.HR.Infra.CrossCutting.Common.csproj", "{111502F6-F999-4325-9CE4-525502A25B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Application", "src\Visma.HR.Application\Visma.HR.Application.csproj", "{DBCF6594-2CFA-4D0F-A7CC-7897D47A3E69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.HR.Application", "src\Visma.HR.Application\Visma.HR.Application.csproj", "{DBCF6594-2CFA-4D0F-A7CC-7897D47A3E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.HR.Infra.CrossCutting.Bus", "src\Visma.HR.Infra.CrossCutting.Bus\Visma.HR.Infra.CrossCutting.Bus.csproj", "{4DC5E5E1-297B-4B81-8166-42267365AA3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,6 +78,10 @@ Global
 		{DBCF6594-2CFA-4D0F-A7CC-7897D47A3E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBCF6594-2CFA-4D0F-A7CC-7897D47A3E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBCF6594-2CFA-4D0F-A7CC-7897D47A3E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC5E5E1-297B-4B81-8166-42267365AA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC5E5E1-297B-4B81-8166-42267365AA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC5E5E1-297B-4B81-8166-42267365AA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC5E5E1-297B-4B81-8166-42267365AA3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +102,7 @@ Global
 		{3124CB32-E8F8-4502-837E-471CD21C5A0A} = {C2E6E31E-A11B-4E21-BA3E-4A11F5FBFE3E}
 		{111502F6-F999-4325-9CE4-525502A25B24} = {C2E6E31E-A11B-4E21-BA3E-4A11F5FBFE3E}
 		{DBCF6594-2CFA-4D0F-A7CC-7897D47A3E69} = {D1AD9819-A842-4980-B7AB-7C6F1474A1D9}
+		{4DC5E5E1-297B-4B81-8166-42267365AA3A} = {C2E6E31E-A11B-4E21-BA3E-4A11F5FBFE3E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F05028D4-538C-43A6-9962-4AA34671834B}

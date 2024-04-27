@@ -39,16 +39,12 @@ namespace Visma.HR.Infra.Data.Mappings.Employees
                    .HasColumnName("role")
                    .IsRequired();
 
+            builder.Property(c => c.BossId)
+                   .HasColumnName("boss_id");
+
             builder.HasOne(c => c.HomeAddress)
                    .WithOne(c => c.Employee)
                    .HasForeignKey<Employee>(c => c.Id);
-
-            builder.Property(c => c.Boss)
-                   .HasColumnName("boss")
-                   .IsRequired();
-
-            builder.Property(c => c.Id)
-                   .HasColumnName("id");
         }
     }
 }

@@ -14,6 +14,11 @@ namespace Visma.HR.Domain.Core.Entities
         [NotMapped]
         public ValidationResult ValidationResult { get; set; }
 
+        public Entity()
+        {
+            Id = Guid.NewGuid();
+        }
+
         protected void Validate<E, V>(E entity, V validator) where E : class
                                                             where V : Validator<E>
         {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Visma.HR.Domain.Commands.Employee.Actions
+namespace Visma.HR.Domain.Commands.Employees.Actions
 {
     public class UpdatingEmployeeSalaryCommand : EmployeeCommand
     {

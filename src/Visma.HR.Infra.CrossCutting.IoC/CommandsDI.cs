@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Visma.HR.Domain.Commands.Employee.Actions;
-using Visma.HR.Domain.Commands.Employee.Handlers;
+using Visma.HR.Domain.Commands.Employees.Actions;
+using Visma.HR.Domain.Commands.Employees.Handlers;
 
 namespace Visma.HR.Infra.CrossCutting.IoC
 {

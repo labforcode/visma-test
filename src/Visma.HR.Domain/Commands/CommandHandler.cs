@@ -23,30 +23,30 @@ namespace Visma.HR.Domain.Commands
             if (_notificationContext.HasNotifications) return false;
             if (_uow.Commit()) return true;
 
-            NotificacaoExcecao();
+            ExceptionNotify();
             return false;
         }
 
-        public void NotificacaoSucesso(string message = "")
+        public void SuccessNotify(string message = "")
         {
             if (string.IsNullOrEmpty(message)) message = DefaultMessages.Success;
 
             _notificationContext.Notify(NotificationType.Success, message);
         }
 
-        public void NotificacaoFalha(string failure = "")
+        public void FailNotify(string failure = "")
         {
             if (string.IsNullOrEmpty(failure)) failure = DefaultMessages.Failure;
 
             _notificationContext.Notify(NotificationType.Failure, failure);
         }
 
-        public void NotificacaoFalha(ValidationResult errors)
+        public void FailNotify(ValidationResult errors)
         {
             _notificationContext.Notify(errors);
         }
 
-        public void NotificacaoExcecao()
+        public void ExceptionNotify()
         {
             var error = DefaultMessages.Exception;
             _notificationContext.Notify(NotificationType.Exception, error);

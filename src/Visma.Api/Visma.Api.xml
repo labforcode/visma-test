@@ -10,34 +10,72 @@
         <member name="M:Visma.HR.Api.Controllers.ApiController.#ctor(Visma.HR.Domain.Core.Notifications.NotificationContext)">
             <inheritdoc/>
         </member>
+        <member name="M:Visma.HR.Api.Controllers.ApiController.NotifyModelStateErrors">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.HR.Api.Controllers.ApiController.Ok(System.Object,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.HR.Api.Controllers.ApiController.Created">
+            <inheritdoc/>
+        </member>
         <member name="T:Visma.HR.Api.Controllers.Employees.EmployeeController">
             <inheritdoc/>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.#ctor(Visma.HR.Domain.Core.Notifications.NotificationContext)">
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.#ctor(Visma.HR.Domain.Core.Notifications.NotificationContext,Visma.HR.Application.Interfaces.Employees.IEmployeeAppService)">
             <inheritdoc/>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.AddingEmployeeAsync">
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.AddingEmployeeAsync(Visma.HR.Application.DTOs.Employees.AddingEmployeeDto)">
             <summary>
-            
+            Adding new employee
             </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.UpdatingEmployeeAsync">
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.UpdatingEmployeeAsync(Visma.HR.Application.DTOs.Employees.UpdatingEmployeeDto)">
             <summary>
-            
+            Updating employee
             </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.UpdatingEmployeeSalaryAsync">
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.UpdatingEmployeeSalaryAsync(Visma.HR.Application.DTOs.Employees.UpdatingEmployeeSalaryDto)">
             <summary>
-            
+            Updating just employee salary
             </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.DeletingEmployeeAsync(System.Guid)">
             <summary>
-            
+            Deleting employee
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingEmployeeAsync(System.Guid)">
+            <summary>
+            Getting a particular employee by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingEmployeesAsync(System.Int32,System.Int32,System.String,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            Getting employee by filter
+            </summary>
+            <param name="pageSize"></param>
+            <param name="index"></param>
+            <param name="name"></param>
+            <param name="startBirthDate"></param>
+            <param name="endBirthDate"></param>
+            <param name="bossId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingInfoRoleAsync(System.String)">
+            <summary>
+            Getting employee count and average salary for particular Role
+            </summary>
+            <param name="role"></param>
             <returns></returns>
         </member>
         <member name="T:Visma.HR.Api.DTOs.Common.ResponseDto">

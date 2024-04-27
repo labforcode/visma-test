@@ -44,9 +44,21 @@ namespace Visma.HR.Domain.Entities.Addresses
 
         protected Address() { }
 
-        public static void Create()
+        public static Address Create(string postalCode,
+                                     string number,
+                                     string street,
+                                     string city,
+                                     string state,
+                                     string country,
+                                     Guid employeeId)
         {
-
+            return new Address(postalCode,
+                               number,
+                               street,
+                               city,
+                               state,
+                               country,
+                               employeeId);
         }
     }
 }

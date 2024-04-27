@@ -23,7 +23,7 @@ namespace Visma.HR.Infra.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Visma.Domain.Entities.Addresses.Address", b =>
+            modelBuilder.Entity("Visma.HR.Domain.Entities.Addresses.Address", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace Visma.HR.Infra.Data.Migrations
                     b.ToTable("addresses", "public");
                 });
 
-            modelBuilder.Entity("Visma.Domain.Entities.Employees.Employee", b =>
+            modelBuilder.Entity("Visma.HR.Domain.Entities.Employees.Employee", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -79,12 +79,9 @@ namespace Visma.HR.Infra.Data.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("birth_date");
 
-                    b.Property<bool>("Boss")
-                        .HasColumnType("boolean")
-                        .HasColumnName("boss");
-
                     b.Property<Guid>("BossId")
-                        .HasColumnType("uuid");
+                        .HasColumnType("uuid")
+                        .HasColumnName("boss_id");
 
                     b.Property<decimal>("CurrentlySalary")
                         .HasColumnType("numeric")
@@ -114,18 +111,18 @@ namespace Visma.HR.Infra.Data.Migrations
                     b.ToTable("employees", "public");
                 });
 
-            modelBuilder.Entity("Visma.Domain.Entities.Employees.Employee", b =>
+            modelBuilder.Entity("Visma.HR.Domain.Entities.Employees.Employee", b =>
                 {
-                    b.HasOne("Visma.Domain.Entities.Addresses.Address", "HomeAddress")
+                    b.HasOne("Visma.HR.Domain.Entities.Addresses.Address", "HomeAddress")
                         .WithOne("Employee")
-                        .HasForeignKey("Visma.Domain.Entities.Employees.Employee", "Id")
+                        .HasForeignKey("Visma.HR.Domain.Entities.Employees.Employee", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("HomeAddress");
                 });
 
-            modelBuilder.Entity("Visma.Domain.Entities.Addresses.Address", b =>
+            modelBuilder.Entity("Visma.HR.Domain.Entities.Addresses.Address", b =>
                 {
                     b.Navigation("Employee")
                         .IsRequired();

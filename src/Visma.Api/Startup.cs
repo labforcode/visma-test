@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Reflection;
+using System.Text.Json.Serialization;
 using Visma.HR.Api.Extensions;
 using Visma.HR.Api.Filters;
 
@@ -26,6 +27,7 @@ public class Startup
         services.AddNativeDependenceInjection(Configuration);
         services.AddMvc(options => options.Filters.Add<NotificationFilter>())
                 .AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
     }
 
     ///<inheritdoc/>

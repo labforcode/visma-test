@@ -7,6 +7,6 @@ namespace Visma.HR.Domain.Core.Interfaces.Bus
     {
         Task SendCommandAsync<T>(T command) where T : Command;
 
-        Task RaiseEventAsync<T>(T command) where T : Event;
+        Task RaiseEventAsync<T>(T @event) where T : Event;
     }
 }

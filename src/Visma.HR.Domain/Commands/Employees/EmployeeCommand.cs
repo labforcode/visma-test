@@ -1,6 +1,6 @@
 ﻿using Visma.HR.Domain.Core.Commands;
 
-namespace Visma.HR.Domain.Commands.Employee
+namespace Visma.HR.Domain.Commands.Employees
 {
     public abstract class EmployeeCommand : Command
     {
@@ -12,11 +12,11 @@ namespace Visma.HR.Domain.Commands.Employee
 
         public DateTime EmploymentDate { get; protected set; }
 
-        public bool Boss { get; protected set; }
-
         public decimal CurrentlySalary { get; protected set; }
 
         public string Role { get; protected set; }
+
+        public string BossId { get; protected set; }
 
         public string PostalCode { get; protected set; }
 

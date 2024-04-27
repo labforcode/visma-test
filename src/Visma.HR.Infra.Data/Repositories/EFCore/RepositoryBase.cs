@@ -19,7 +19,7 @@ namespace Visma.HR.Infra.Data.Repositories.EFCore
         {
             try
             {
-
+                _dbSet.Add(entity);
             }
             catch
             {
