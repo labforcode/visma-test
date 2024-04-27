@@ -147,23 +147,24 @@ namespace Visma.HR.Api.Controllers.Employees
         /// <summary>
         /// Getting employee by filter
         /// </summary>
-        /// <param name="pageSize"></param>
-        /// <param name="index"></param>
         /// <param name="name"></param>
         /// <param name="startBirthDate"></param>
         /// <param name="endBirthDate"></param>
         /// <param name="bossId"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="index"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("employees/{pageSize}/{index}")]
-        public async Task<IActionResult> GettingEmployeesAsync(int pageSize, int index, string name, DateTime startBirthDate, DateTime endBirthDate, string bossId)
+        [Route("employees")]
+        public async Task<IActionResult> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index)
         {
             try
             {
+                var totalRecords = 0;
+                var employees = await _employeeAppService.GettingEmployeesAsync(name, startBirthDate, endBirthDate, bossId, pageSize, index);
+                if(employees != null && employees.Any()) totalRecords = employees.FirstOrDefault().TotalRecords;
 
-                await _employeeAppService.GettingEmployeesAsync(pageSize, index, name, startBirthDate, endBirthDate, bossId);
-
-                return ResponseOk();
+                return ResponseOk(employees, totalRecords);
             }
             catch
             {

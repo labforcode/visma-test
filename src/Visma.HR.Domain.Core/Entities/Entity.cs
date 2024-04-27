@@ -6,13 +6,16 @@ namespace Visma.HR.Domain.Core.Entities
 {
     public abstract class Entity
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
 
         [NotMapped]
-        public bool IsValid { get; private set; }
+        public bool IsValid { get; protected set; }
 
         [NotMapped]
-        public ValidationResult ValidationResult { get; set; }
+        public ValidationResult ValidationResult { get; protected set; }
+
+        [NotMapped]
+        public int TotalRecords { get; protected set; }
 
         public Entity()
         {

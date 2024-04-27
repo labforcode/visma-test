@@ -43,14 +43,14 @@ namespace Visma.HR.Application.Interfaces.Employees
         /// <summary>
         /// Getting employee by filter
         /// </summary>
-        /// <param name="pageSize"></param>
-        /// <param name="index"></param>
         /// <param name="name"></param>
         /// <param name="startBirthDate"></param>
         /// <param name="endBirthDate"></param>
         /// <param name="bossId"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="index"></param>
         /// <returns></returns>
-        Task GettingEmployeesAsync(int pageSize, int index, string name, DateTime startBirthDate, DateTime endBirthDate, string bossId);
+        Task<IEnumerable<EmployeeViewModel>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index);
 
         /// <summary>
         /// Getting employee count and average salary for particular Role

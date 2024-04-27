@@ -59,16 +59,16 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingEmployeesAsync(System.Int32,System.Int32,System.String,System.DateTime,System.DateTime,System.String)">
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingEmployeesAsync(System.String,System.DateTime,System.DateTime,System.String,System.Int32,System.Int32)">
             <summary>
             Getting employee by filter
             </summary>
-            <param name="pageSize"></param>
-            <param name="index"></param>
             <param name="name"></param>
             <param name="startBirthDate"></param>
             <param name="endBirthDate"></param>
             <param name="bossId"></param>
+            <param name="pageSize"></param>
+            <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingInfoRoleAsync(System.String)">

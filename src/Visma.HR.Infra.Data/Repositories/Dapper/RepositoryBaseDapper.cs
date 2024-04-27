@@ -16,6 +16,20 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper
             _connectionString = AppSettingsDto.Settings.ConnectionStrings.VismaDb;
         }
 
+        protected static string Order(string query, string column, string direction)
+        {
+            if (string.IsNullOrEmpty(column)) return query;
+
+            return $@"{query} ORDER BY {column} {direction} ";
+        }
+
+        protected static string Paginate(string query, int offset, int limit)
+        {
+
+            offset = limit * (offset - 1);
+            return $@"{query} OFFSET {offset} LIMIT {limit} ";
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);

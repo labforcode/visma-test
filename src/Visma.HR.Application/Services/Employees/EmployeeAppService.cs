@@ -51,9 +51,12 @@ namespace Visma.HR.Application.Services.Employees
             return EmployeeViewModel.Parse(employee);
         }
 
-        public Task GettingEmployeesAsync(int pageSize, int index, string name, DateTime startBirthDate, DateTime endBirthDate, string bossId)
+        public async Task<IEnumerable<EmployeeViewModel>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index)
         {
-            throw new NotImplementedException();
+            var employees = await _employeeDapperRepository.GettingEmployeesAsync(name, startBirthDate, endBirthDate, bossId, pageSize, index);
+            if (employees is null) return Enumerable.Empty<EmployeeViewModel>();
+
+            return employees.Select(employee => EmployeeViewModel.Parse(employee));
         }
 
         public Task GettingInfoRoleAsync(string role)
