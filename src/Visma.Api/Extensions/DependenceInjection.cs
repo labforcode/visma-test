@@ -1,6 +1,6 @@
-﻿using Visma.Infra.CrossCutting.IoC;
+﻿using Visma.HR.Infra.CrossCutting.IoC;
 
-namespace Visma.Api.Extensions
+namespace Visma.HR.Api.Extensions
 {
     ///<inheritdoc/>
     public static class DependenceInjection

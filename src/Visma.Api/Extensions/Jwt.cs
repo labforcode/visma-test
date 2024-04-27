@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Visma.Infra.CrossCutting.Common.Settings;
+using Visma.HR.Infra.CrossCutting.Common.Settings;
 
-namespace Visma.Api.Extensions
+namespace Visma.HR.Api.Extensions
 {
     ///<inheritdoc/>
     public static class Jwt

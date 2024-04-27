@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
-using Visma.Api.DTOs.Common;
-using Visma.Domain.Core.Notifications;
-using Visma.Infra.CrossCutting.Common.Constants;
-using Visma.Infra.CrossCutting.Common.Enums;
+using Visma.HR.Api.DTOs.Common;
+using Visma.HR.Domain.Core.Notifications;
+using Visma.HR.Infra.CrossCutting.Common.Constants;
+using Visma.HR.Infra.CrossCutting.Common.Enums;
 
-namespace Visma.Api.Filters
+namespace Visma.HR.Api.Filters
 {
     /// <inheritdoc/>
     public class NotificationFilter : IAsyncResultFilter

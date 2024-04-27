@@ -1,4 +1,4 @@
-using Visma.Api;
+using Visma.HR.Api;
 
 namespace TCash.WebApi
 {

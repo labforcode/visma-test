@@ -1,4 +1,4 @@
-﻿namespace Visma.Api.Extensions
+﻿namespace Visma.HR.Api.Extensions
 {
     ///<inheritdoc/>
     public static class Cors

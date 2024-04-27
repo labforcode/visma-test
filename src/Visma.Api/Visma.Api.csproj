@@ -31,11 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Visma.Infra.CrossCutting.IoC\Visma.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Visma.HR.Infra.CrossCutting.IoC\Visma.HR.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 
 </Project>

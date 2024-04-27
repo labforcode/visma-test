@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Visma.Api.DTOs.Common
+namespace Visma.HR.Api.DTOs.Common
 {
     /// <inheritdoc/>
     [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]

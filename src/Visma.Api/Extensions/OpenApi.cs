@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using System.Reflection;
 
-namespace Visma.Api.Extensions
+namespace Visma.HR.Api.Extensions
 {
     ///<inheritdoc/>
     public static class OpenApi

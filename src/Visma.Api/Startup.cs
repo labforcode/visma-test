@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
-using Visma.Api.Extensions;
-using Visma.Api.Filters;
+using Visma.HR.Api.Extensions;
+using Visma.HR.Api.Filters;
 
-namespace Visma.Api;
+namespace Visma.HR.Api;
 
 ///<inheritdoc/>
 public class Startup
