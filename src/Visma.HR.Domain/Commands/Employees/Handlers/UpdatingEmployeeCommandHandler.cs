@@ -36,6 +36,13 @@ namespace Visma.HR.Domain.Commands.Employees.Handlers
                 var employee = await _employeeDapperRepository.GettingEmployee(command.Id);
                 employee.Update(command);
 
+                var ceoRegistered = await _employeeDapperRepository.CheckCEOWasRegistered(employee.Id);
+                if (ceoRegistered)
+                {
+                    FailNotify($"There can be only 1 employee with CEO role");
+                    return false;
+                }
+
                 _employeeRepository.Update(employee);
                 if (Commit() is false) return false;
 

@@ -40,6 +40,13 @@ namespace Visma.HR.Domain.Commands.Employees.Handlers
                     return false;
                 }
 
+                var ceoRegistered = await _employeeDapperRepository.CheckCEOWasRegistered();
+                if (ceoRegistered)
+                {
+                    FailNotify($"There can be only 1 employee with CEO role");
+                    return false;
+                }
+
                 _employeeRepository.Add(employee);
                 if (Commit() is false) return false;
 

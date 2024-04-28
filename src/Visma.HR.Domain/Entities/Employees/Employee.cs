@@ -1,6 +1,7 @@
 ﻿using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Entities;
 using Visma.HR.Domain.Validators.Employees.Actions;
+using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Domain.Entities.Employees
 {
@@ -71,6 +72,33 @@ namespace Visma.HR.Domain.Entities.Employees
             //TO DO
             Validate(this, new UpdateEmployeeValidator());
         }
+
+        public bool CheckIfIsCEO() => Role == EmployeeRole.ChiefExecutiveOfficer;
+
+        public bool CheckIfAgeIsAllowed()
+        {
+            var minAge = 18;
+            var maxAge = 70;
+            var age = DateTime.Now.Year - BirthDate.Year;
+
+            return (age >= minAge) && (age <= maxAge);
+        }
+
+        public bool CheckMinEmploymentDateAllowed()
+        {
+            var minDate = new DateTime(2000, 1, 1).Date;
+
+            return EmploymentDate >= minDate;
+        }
+
+        public bool CheckMaxEmploymentDateAllowed()
+        {
+            var maxDate = DateTime.Now.Date;
+
+            return EmploymentDate <= maxDate;
+        }
+
+        public bool CheckMinCurrentSalaryAllowed() => CurrentlySalary >= 0;
 
         public void UpdateSalary(UpdatingEmployeeSalaryCommand command)
         {

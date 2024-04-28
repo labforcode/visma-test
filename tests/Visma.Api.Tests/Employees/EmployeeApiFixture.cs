@@ -8,7 +8,7 @@ namespace Visma.Api.Tests.Employees
     {
         private List<string> _roles = new List<string>
         {
-            "CEO",
+            "Chief executive officer",
             "Chief marketing officer",
             "Chief operations officer",
             "Chief information officer",

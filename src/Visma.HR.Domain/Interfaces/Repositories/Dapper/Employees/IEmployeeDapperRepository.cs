@@ -38,5 +38,11 @@ namespace Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees
         /// <param name="lastName"></param>
         /// <returns></returns>
         Task<bool> CheckEmployeeWasRegistered(string firstName, string lastName);
+
+        /// <summary>
+        /// Check if CEO was registered
+        /// </summary>
+        /// <returns></returns>
+        Task<bool> CheckCEOWasRegistered(Guid id = default);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Visma.HR.Domain.Entities.Employees;
 using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
+using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
 {
@@ -83,6 +84,32 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
                 var filters = new DynamicParameters();
                 filters.Add("@first_name", firstName);
                 filters.Add("@last_name", lastName);
+
+                return await conn.QueryFirstOrDefaultAsync<bool>(query, filters);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> CheckCEOWasRegistered(Guid id = default)
+        {
+            try
+            {
+                var conn = Connection;
+                var query = $@"SELECT COUNT(*)
+							   FROM employees AS e	
+							   WHERE e.role = @role ";
+
+                var filters = new DynamicParameters();
+                filters.Add("@role", EmployeeRole.ChiefExecutiveOfficer);
+                if(id != Guid.Empty)
+                {
+                    query = $@"{query}
+                                AND e.id <> @employee_id;";
+                    filters.Add("@employee_id", id);
+                }
 
                 return await conn.QueryFirstOrDefaultAsync<bool>(query, filters);
             }
