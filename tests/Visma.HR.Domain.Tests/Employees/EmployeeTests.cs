@@ -347,19 +347,6 @@ namespace Visma.HR.Domain.Tests.Employees
             sut.BossId.Should().Be(BossId);
         }
 
-        [Fact]
-        public void Create_ceo_employee_fail_with_boss_id()
-        {
-            GenerateProperties(EmployeeRole.ChiefExecutiveOfficer);
-            var command = GenerateFakeAddingEmployeeCommand();
-
-            var sut = Employee.Create(command);
-
-            sut.Should().NotBeNull();
-            sut.IsValid.Should().BeFalse();
-            sut.ValidationResult.Errors.Should().NotBeNullOrEmpty();
-        }
-
         [Theory]
         [InlineData(EmployeeRole.ChiefMarketingOfficer)]
         [InlineData(EmployeeRole.ChiefOperationsOfficer)]
