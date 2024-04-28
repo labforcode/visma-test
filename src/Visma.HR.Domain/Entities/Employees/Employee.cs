@@ -39,7 +39,7 @@ namespace Visma.HR.Domain.Entities.Employees
             CurrentlySalary = currentlySalary;
             Role = role;
             HomeAddress = homeAddress;
-            BossId = Guid.Parse(bossId);
+            BossId = CreateBossId(bossId);
             Validate(this, new CreateEmployeeValidator());
         }
 
@@ -101,5 +101,7 @@ namespace Visma.HR.Domain.Entities.Employees
             CurrentlySalary = command.CurrentlySalary;
             Validate(this, new UpdateEmployeeCurrentlySalaryValidator());
         }
+
+        private Guid CreateBossId(string bossId) => CheckIfIsCEO() ? Guid.Empty : Guid.Parse(bossId);
     }
 }

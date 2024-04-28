@@ -5,6 +5,7 @@ using Visma.HR.Domain.Core.Notifications;
 using Visma.HR.Domain.Entities.Employees;
 using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
 using Visma.HR.Domain.Interfaces.Repositories.EFCore.Employees;
+using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Domain.Commands.Employees.Handlers
 {
@@ -33,15 +34,8 @@ namespace Visma.HR.Domain.Commands.Employees.Handlers
                     return false;
                 }
 
-                var isRegistered = await _employeeDapperRepository.CheckEmployeeWasRegistered(employee.FirstName, employee.LastName);
-                if (isRegistered)
-                {
-                    FailNotify($"There is already an employee with the name {employee.FirstName} {employee.LastName}");
-                    return false;
-                }
-
-                var ceoRegistered = await _employeeDapperRepository.CheckCEOWasRegistered();
-                if (ceoRegistered)
+                var isRegistered = await _employeeDapperRepository.CheckCEOWasRegistered();
+                if (isRegistered && employee.Role == EmployeeRole.ChiefExecutiveOfficer)
                 {
                     FailNotify($"There can be only 1 employee with CEO role");
                     return false;

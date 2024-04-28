@@ -1,6 +1,7 @@
 ﻿using Visma.HR.Application.DTOs.Employees;
 using Visma.HR.Application.Interfaces.Employees;
 using Visma.HR.Application.ViewModels.Employees;
+using Visma.HR.Application.ViewModels.Roles;
 using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Interfaces.Bus;
 using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
@@ -51,17 +52,25 @@ namespace Visma.HR.Application.Services.Employees
             return EmployeeViewModel.Parse(employee);
         }
 
-        public async Task<IEnumerable<EmployeeViewModel>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index)
+        public async Task<IEnumerable<EmployeeViewModel>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string role, string bossId, int pageSize, int index)
         {
-            var employees = await _employeeDapperRepository.GettingEmployeesAsync(name, startBirthDate, endBirthDate, bossId, pageSize, index);
+            var employees = await _employeeDapperRepository.GettingEmployeesAsync(name, startBirthDate, endBirthDate, role, bossId, pageSize, index);
             if (employees is null) return Enumerable.Empty<EmployeeViewModel>();
 
             return employees.Select(employee => EmployeeViewModel.Parse(employee));
         }
 
-        public Task GettingInfoRoleAsync(string role)
+        public async Task<InfoRoleViewModel> GettingInfoRoleAsync(string role)
         {
-            throw new NotImplementedException();
+            var infoRole = new InfoRoleViewModel();
+            var employees = await _employeeDapperRepository.GettingEmployeesAsync(role: role);
+            if (employees is null || employees.Any() is false) return infoRole;
+
+            infoRole.Role = role;
+            infoRole.EmployeeCount = employees.Count();
+            infoRole.AverageSalary = employees.Sum(employee => employee.CurrentlySalary) / employees.Count();
+
+            return infoRole;
         }
     }
 }

@@ -59,7 +59,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingEmployeesAsync(System.String,System.DateTime,System.DateTime,System.String,System.Int32,System.Int32)">
+        <member name="M:Visma.HR.Api.Controllers.Employees.EmployeeController.GettingEmployeesAsync(System.String,System.DateTime,System.DateTime,System.String,System.String,System.Int32,System.Int32)">
             <summary>
             Getting employee by filter
             </summary>

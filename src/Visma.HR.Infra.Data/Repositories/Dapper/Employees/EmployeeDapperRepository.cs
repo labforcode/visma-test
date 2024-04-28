@@ -35,13 +35,13 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
             }
         }
 
-        public async Task<IEnumerable<Employee>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index)
+        public async Task<IEnumerable<Employee>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string role, string bossId, int pageSize, int index)
         {
             try
             {
                 var conn = Connection;
                 var filters = new DynamicParameters();
-                var query = ApplyFilters(filters, name, startBirthDate, endBirthDate, bossId, pageSize, index);
+                var query = ApplyFilters(filters, name, startBirthDate, endBirthDate, role, bossId, pageSize, index);
 
                 return await conn.QueryAsync<Employee>(query, filters);
             }
@@ -119,7 +119,7 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
             }
         }
 
-        private string ApplyFilters(DynamicParameters filters, string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index)
+        private string ApplyFilters(DynamicParameters filters, string name, DateTime startBirthDate, DateTime endBirthDate, string role, string bossId, int pageSize, int index)
         {
             var query = $@"SELECT e.id                 AS Id,
                                   e.first_name         AS FirstName,
@@ -136,6 +136,7 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
 
             query = ApllyFilterName(filters, query, name);
             query = ApllyFilterBirthDateInterval(filters, query, startBirthDate, endBirthDate);
+            query = ApllyFilterRole(filters, query, role);
             query = ApllyFilterBossId(filters, query, bossId);
 
             if (pageSize > 0) query = Paginate(query, index, pageSize);
@@ -164,6 +165,17 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
 
             filters.Add("@start_birth_date", startBirthDate);
             filters.Add("@end_birth_date", endBirthDate);
+            return query;
+        }
+
+        private string ApllyFilterRole(DynamicParameters filters, string query, string role)
+        {
+            if (string.IsNullOrEmpty(role)) return query;
+
+            query = $@"{query}
+                        AND e.role = @role ";
+
+            filters.Add("@role", role);
             return query;
         }
 

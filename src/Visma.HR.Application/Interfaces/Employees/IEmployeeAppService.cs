@@ -1,5 +1,6 @@
 ﻿using Visma.HR.Application.DTOs.Employees;
 using Visma.HR.Application.ViewModels.Employees;
+using Visma.HR.Application.ViewModels.Roles;
 
 namespace Visma.HR.Application.Interfaces.Employees
 {
@@ -46,17 +47,18 @@ namespace Visma.HR.Application.Interfaces.Employees
         /// <param name="name"></param>
         /// <param name="startBirthDate"></param>
         /// <param name="endBirthDate"></param>
+        /// <param name="role"></param>
         /// <param name="bossId"></param>
         /// <param name="pageSize"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        Task<IEnumerable<EmployeeViewModel>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index);
+        Task<IEnumerable<EmployeeViewModel>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string role, string bossId, int pageSize, int index);
 
         /// <summary>
         /// Getting employee count and average salary for particular Role
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
-        Task GettingInfoRoleAsync(string role);
+        Task<InfoRoleViewModel> GettingInfoRoleAsync(string role);
     }
 }

@@ -156,13 +156,13 @@ namespace Visma.HR.Api.Controllers.Employees
         /// <returns></returns>
         [HttpGet]
         [Route("employees")]
-        public async Task<IActionResult> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index)
+        public async Task<IActionResult> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string role, string bossId, int pageSize, int index)
         {
             try
             {
                 var totalRecords = 0;
-                var employees = await _employeeAppService.GettingEmployeesAsync(name, startBirthDate, endBirthDate, bossId, pageSize, index);
-                if(employees != null && employees.Any()) totalRecords = employees.FirstOrDefault().TotalRecords;
+                var employees = await _employeeAppService.GettingEmployeesAsync(name, startBirthDate, endBirthDate, role, bossId, pageSize, index);
+                if (employees != null && employees.Any()) totalRecords = employees.FirstOrDefault().TotalRecords;
 
                 return ResponseOk(employees, totalRecords);
             }
@@ -183,9 +183,9 @@ namespace Visma.HR.Api.Controllers.Employees
         {
             try
             {
-                await _employeeAppService.GettingInfoRoleAsync(role);
+                var infoRole = await _employeeAppService.GettingInfoRoleAsync(role);
 
-                return ResponseOk();
+                return ResponseOk(infoRole);
             }
             catch
             {

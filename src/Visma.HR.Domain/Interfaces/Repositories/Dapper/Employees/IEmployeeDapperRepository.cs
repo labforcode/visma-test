@@ -17,11 +17,12 @@ namespace Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees
         /// <param name="name"></param>
         /// <param name="startBirthDate"></param>
         /// <param name="endBirthDate"></param>
+        /// <param name="role"></param>
         /// <param name="bossId"></param>
         /// <param name="pageSize"></param>
         /// <param name="index"></param>
         /// <returns></returns>
-        Task<IEnumerable<Employee>> GettingEmployeesAsync(string name, DateTime startBirthDate, DateTime endBirthDate, string bossId, int pageSize, int index);
+        Task<IEnumerable<Employee>> GettingEmployeesAsync(string name = "", DateTime startBirthDate = default, DateTime endBirthDate = default, string role = "", string bossId = "", int pageSize = 0, int index = 0);
 
         /// <summary>
         /// Check if emplyee was registered by id
