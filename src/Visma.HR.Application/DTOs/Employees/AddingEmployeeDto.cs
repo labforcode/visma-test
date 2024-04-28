@@ -18,12 +18,15 @@ namespace Visma.HR.Application.DTOs.Employees
 
         public string HomeAddress { get; set; }
 
+        public string BossId { get; set; }
+
         public static AddingEmployeeCommand Parse(AddingEmployeeDto dto) => new AddingEmployeeCommand(dto.FirstName,
                                                                                                       dto.LastName,
                                                                                                       dto.BirthDate,
                                                                                                       dto.EmploymentDate,
                                                                                                       dto.CurrentlySalary,
                                                                                                       dto.Role,
-                                                                                                      dto.HomeAddress);
+                                                                                                      dto.HomeAddress,
+                                                                                                      dto.BossId);
     }
 }

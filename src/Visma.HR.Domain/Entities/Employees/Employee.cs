@@ -39,9 +39,7 @@ namespace Visma.HR.Domain.Entities.Employees
             CurrentlySalary = currentlySalary;
             Role = role;
             HomeAddress = homeAddress;
-            BossId = CreateBossId(bossId);
-
-            //TO DO
+            BossId = Guid.Parse(bossId);
             Validate(this, new CreateEmployeeValidator());
         }
 
@@ -67,9 +65,7 @@ namespace Visma.HR.Domain.Entities.Employees
             EmploymentDate = command.EmploymentDate;
             Role = command.Role;
             HomeAddress = command.HomeAddress;
-            BossId = UpdateBossId(command.BossId);
-
-            //TO DO
+            BossId = Guid.Parse(command.BossId);
             Validate(this, new UpdateEmployeeValidator());
         }
 
@@ -100,16 +96,10 @@ namespace Visma.HR.Domain.Entities.Employees
 
         public bool CheckMinCurrentSalaryAllowed() => CurrentlySalary >= 0;
 
-        public void UpdateSalary(UpdatingEmployeeSalaryCommand command)
+        public void UpdateSalary(UpdatingEmployeeCurrentlySalaryCommand command)
         {
             CurrentlySalary = command.CurrentlySalary;
-
-            //TO DO
-            Validate(this, new UpdateEmployeeSalaryValidator());
+            Validate(this, new UpdateEmployeeCurrentlySalaryValidator());
         }
-
-        private Guid CreateBossId(string bossId) => string.IsNullOrEmpty(bossId) ? Guid.Empty : Guid.Parse(bossId);
-
-        private Guid UpdateBossId(string bossId) => string.IsNullOrEmpty(bossId) ? BossId : Guid.Parse(bossId);
     }
 }

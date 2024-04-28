@@ -7,13 +7,13 @@ using Visma.HR.Domain.Interfaces.Repositories.EFCore.Employees;
 
 namespace Visma.HR.Domain.Commands.Employees.Handlers
 {
-    public class UpdatingEmployeeSalaryCommandHandler : CommandHandler,
-                                                        IRequestHandler<UpdatingEmployeeSalaryCommand, bool>
+    public class UpdatingEmployeeCurrentlySalaryCommandHandler : CommandHandler,
+                                                        IRequestHandler<UpdatingEmployeeCurrentlySalaryCommand, bool>
     {
         private readonly IEmployeeEFCoreRepository _employeeRepository;
         private readonly IEmployeeDapperRepository _employeeDapperRepository;
 
-        public UpdatingEmployeeSalaryCommandHandler(IUnitOfWork uow,
+        public UpdatingEmployeeCurrentlySalaryCommandHandler(IUnitOfWork uow,
                                                     NotificationContext notificationContext,
                                                     IEmployeeEFCoreRepository employeeRepository,
                                                     IEmployeeDapperRepository employeeDapperRepository) : base(uow, notificationContext)
@@ -22,7 +22,7 @@ namespace Visma.HR.Domain.Commands.Employees.Handlers
             _employeeDapperRepository = employeeDapperRepository;
         }
 
-        public async Task<bool> Handle(UpdatingEmployeeSalaryCommand command, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdatingEmployeeCurrentlySalaryCommand command, CancellationToken cancellationToken)
         {
             try
             {

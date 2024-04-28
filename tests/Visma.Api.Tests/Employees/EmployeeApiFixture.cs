@@ -28,14 +28,14 @@ namespace Visma.Api.Tests.Employees
         {
             var homeAddress = GenerateFakeEmployeeAddress();
             return new Faker<AddingEmployeeDto>("en_US")
-                .CustomInstantiator(fake => new AddingEmployeeDto
+                .CustomInstantiator(faker => new AddingEmployeeDto
                 {
-                    FirstName = fake.Person.FirstName,
-                    LastName = fake.Person.LastName,
-                    BirthDate = fake.Person.DateOfBirth.Date,
-                    EmploymentDate = fake.Date.Between(new DateTime(2000, 1, 1), DateTime.Now.Date).Date,
-                    CurrentlySalary = fake.Random.Decimal(1000, 100000),
-                    Role = _roles[fake.Random.Int(0, 13)],
+                    FirstName = faker.Person.FirstName,
+                    LastName = faker.Person.LastName,
+                    BirthDate = faker.Person.DateOfBirth.Date,
+                    EmploymentDate = faker.Date.Between(new DateTime(2000, 1, 1), DateTime.Now.Date).Date,
+                    CurrentlySalary = faker.Random.Decimal(1000, 100000),
+                    Role = _roles[faker.Random.Int(0, 13)],
                     HomeAddress = homeAddress
                 });
         }

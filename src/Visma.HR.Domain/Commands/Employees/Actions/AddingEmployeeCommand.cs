@@ -8,7 +8,8 @@
                                      DateTime employmentDate,
                                      decimal currentlySalary,
                                      string role,
-                                     string homeAddress)
+                                     string homeAddress,
+                                     string bossId)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -17,6 +18,7 @@
             CurrentlySalary = currentlySalary;
             Role = role;
             HomeAddress = homeAddress;
+            BossId = bossId;
         }
     }
 }

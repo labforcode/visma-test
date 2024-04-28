@@ -12,7 +12,7 @@ namespace Visma.HR.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<AddingEmployeeCommand, bool>, AddingEmployeeCommandHandler>();
             services.AddScoped<IRequestHandler<DeletingEmployeeCommand, bool>, DeletingEmployeeCommandHandler>();
             services.AddScoped<IRequestHandler<UpdatingEmployeeCommand, bool>, UpdatingEmployeeCommandHandler>();
-            services.AddScoped<IRequestHandler<UpdatingEmployeeSalaryCommand, bool>, UpdatingEmployeeSalaryCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdatingEmployeeCurrentlySalaryCommand, bool>, UpdatingEmployeeCurrentlySalaryCommandHandler>();
         }
     }
 }

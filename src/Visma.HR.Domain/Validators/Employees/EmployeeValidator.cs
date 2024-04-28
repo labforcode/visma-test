@@ -6,26 +6,6 @@ namespace Visma.HR.Domain.Validators.Employees
 {
     public class EmployeeValidator : Validator<Employee>
     {
-        protected void ValidateCEO()
-        {
-            RuleFor(employee => employee)
-                .Custom((employee, context) =>
-                {
-                    if (employee.CheckIfIsCEO() && employee.BossId != Guid.Empty)
-                        context.AddFailure("CEO has no Boss");
-                });
-        }
-
-        protected void ValidateCommonEmployee()
-        {
-            RuleFor(employee => employee)
-                .Custom((employee, context) =>
-                {
-                    if (employee.CheckIfIsCEO() is false && employee.BossId == Guid.Empty)
-                        context.AddFailure("Is necessary to say what's the Boss");
-                });
-        }
-
         protected void ValidateFirstNameIsEmpty()
         {
             RuleFor(employee => employee.FirstName)
@@ -43,14 +23,14 @@ namespace Visma.HR.Domain.Validators.Employees
         protected void ValidateFirstNameLength()
         {
             RuleFor(employee => employee.FirstName.Length)
-                .GreaterThan(50)
+                .LessThanOrEqualTo(50)
                 .WithMessage("The First Name cannot be greater than 50 characters");
         }
 
         protected void ValidateLastNameLength()
         {
             RuleFor(employee => employee.LastName.Length)
-                .GreaterThan(50)
+                .LessThanOrEqualTo(50)
                 .WithMessage("The Last Name cannot be greater than 50 characters");
         }
 
@@ -61,6 +41,40 @@ namespace Visma.HR.Domain.Validators.Employees
                 {
                     if (employee.FirstName == employee.LastName)
                         context.AddFailure("First Name should be different of Last Name");
+                });
+        }
+
+        protected void ValidateRoleIsEmpty()
+        {
+            RuleFor(employee => employee.Role)
+                .NotEmpty()
+                .WithMessage("Role cannot be empty");
+        }
+
+        protected void ValidateHomeAddressIsEmpty()
+        {
+            RuleFor(employee => employee.HomeAddress)
+                .NotEmpty()
+                .WithMessage("Home address cannot be empty");
+        }
+
+        protected void ValidateIfCEO()
+        {
+            RuleFor(employee => employee)
+                .Custom((employee, context) =>
+                {
+                    if (employee.CheckIfIsCEO() && employee.BossId != Guid.Empty)
+                        context.AddFailure("CEO has no Boss");
+                });
+        }
+
+        protected void ValidateIfCommonEmployee()
+        {
+            RuleFor(employee => employee)
+                .Custom((employee, context) =>
+                {
+                    if (employee.CheckIfIsCEO() is false && employee.BossId == Guid.Empty)
+                        context.AddFailure("Is necessary to say who's the Boss");
                 });
         }
 

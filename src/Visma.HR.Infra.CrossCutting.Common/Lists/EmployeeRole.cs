@@ -2,22 +2,19 @@
 {
     public static class EmployeeRole
     {
-        public static string ChiefExecutiveOfficer = "Chief executive officer";
-        public static string ChiefMarketingOfficer = "Chief marketing officer";
-        public static string ChiefOperationsOfficer = "Chief operations officer";
-        public static string ChiefInformationOfficer = "Chief information officer";
-        public static string HumanResourcesManager = "Human resources manager";
-        public static string InformationTechnologyManager = "Information technology manager";
-        public static string MarketingManager = "Marketing manager";
-        public static string ProductManager = "Product manager";
-        public static string SalesManager = "Sales manager";
-        public static string AdministrativeAssistant = "Administrative assistant";
-        public static string Bookkeeper = "Bookkeeper";
-        public static string BusinessAnalyst = "Business analyst";
-        public static string SalesRepresentative = "Sales representative";
-        public static string SoftwareEngineer = "Software engineer";
-
-
-
+        public const string ChiefExecutiveOfficer = "Chief executive officer";
+        public const string ChiefMarketingOfficer = "Chief marketing officer";
+        public const string ChiefOperationsOfficer = "Chief operations officer";
+        public const string ChiefInformationOfficer = "Chief information officer";
+        public const string HumanResourcesManager = "Human resources manager";
+        public const string InformationTechnologyManager = "Information technology manager";
+        public const string MarketingManager = "Marketing manager";
+        public const string ProductManager = "Product manager";
+        public const string SalesManager = "Sales manager";
+        public const string AdministrativeAssistant = "Administrative assistant";
+        public const string Bookkeeper = "Bookkeeper";
+        public const string BusinessAnalyst = "Business analyst";
+        public const string SalesRepresentative = "Sales representative";
+        public const string SoftwareEngineer = "Software engineer";
     }
 }

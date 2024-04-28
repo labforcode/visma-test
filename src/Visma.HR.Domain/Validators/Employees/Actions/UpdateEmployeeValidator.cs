@@ -9,8 +9,10 @@
             ValidateFirstNameLength();
             ValidateLastNameLength();
             ValidateDifferenceBetweenFirstNameAndLastName();
-            ValidateCEO();
-            ValidateCommonEmployee();
+            ValidateRoleIsEmpty();
+            ValidateHomeAddressIsEmpty();
+            ValidateIfCEO();
+            ValidateIfCommonEmployee();
             ValidateEmployeeAge();
             ValidateMinEmploymentDate();
             ValidateMaxEmploymentDate();

@@ -4,6 +4,8 @@ using Visma.Api.Tests.Base.Enums;
 
 namespace Visma.Api.Tests.Employees
 {
+    [Collection("EmployeeApiTests")]
+    [Trait("Category", "Api")]
     public class EmployeeApiTests : EmployeeApiFixture
     {
         [Fact]

@@ -8,7 +8,7 @@ namespace Visma.HR.Application.DTOs.Employees
 
         public decimal CurrentlySalary { get; set; }
 
-        public static UpdatingEmployeeSalaryCommand Parse(UpdatingEmployeeSalaryDto dto) => new UpdatingEmployeeSalaryCommand(dto.Id,
+        public static UpdatingEmployeeCurrentlySalaryCommand Parse(UpdatingEmployeeSalaryDto dto) => new UpdatingEmployeeCurrentlySalaryCommand(dto.Id,
                                                                                                                               dto.CurrentlySalary);
     }
 }
