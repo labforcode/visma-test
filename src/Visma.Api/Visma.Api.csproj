@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Visma.Core.Infra.CrossCutting.IoC\Visma.Core.Infra.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Visma.HR.Application\Visma.HR.Application.csproj" />
     <ProjectReference Include="..\Visma.HR.Infra.CrossCutting.IoC\Visma.HR.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>

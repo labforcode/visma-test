@@ -6,6 +6,6 @@ namespace Visma.HR.Infra.Data.Repositories.EFCore.Employees
 {
     public class EmployeeEFCoreRepository : RepositoryBase<Employee>, IEmployeeEFCoreRepository
     {
-        public EmployeeEFCoreRepository(CoreContext context) : base(context) { }
+        public EmployeeEFCoreRepository(HumanResourcesContext context) : base(context) { }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Visma.HR.Infra.CrossCutting.Common.Settings;
+using Visma.Core.Infra.CrossCutting.Security.Configurations;
 
 namespace Visma.HR.Api.Extensions
 {
@@ -11,17 +9,23 @@ namespace Visma.HR.Api.Extensions
         ///<inheritdoc/>
         public static void AddJwtConfiguration(this IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            services.AddAuthentication(options =>
             {
-                options.RequireHttpsMetadata = false;
-                options.SaveToken = true;
-                options.TokenValidationParameters = new TokenValidationParameters()
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = JwtConfiguration.GetTokenConfiguration();
+                options.Events = new JwtBearerEvents
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = AppSettingsDto.Settings.Security.Audience,
-                    ValidIssuer = AppSettingsDto.Settings.Security.Issuer,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AppSettingsDto.Settings.Security.Key))
+                    OnAuthenticationFailed = context =>
+                    {
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        return Task.CompletedTask;
+                    }
                 };
             });
         }

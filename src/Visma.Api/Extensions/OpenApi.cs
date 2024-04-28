@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
 using System.Reflection;
 
 namespace Visma.HR.Api.Extensions
@@ -18,6 +19,10 @@ namespace Visma.HR.Api.Extensions
                     Version = "v1",
                     Title = "Visma Test API",
                     Description = "Provide resources to  Visma Test API.",
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX"
+                    },
                     Contact = new OpenApiContact
                     {
                         Name = "Brito, Thiago",
@@ -25,6 +30,26 @@ namespace Visma.HR.Api.Extensions
                     }
                 });
 
+                var jwtScheme = new OpenApiSecurityScheme
+                {
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    Name = "JWT Authentication",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Description = "Put JWT Token here",
+                    Reference = new OpenApiReference
+                    {
+                        Id = JwtBearerDefaults.AuthenticationScheme,
+                        Type = ReferenceType.SecurityScheme
+                    }
+                };
+
+                config.AddSecurityDefinition(jwtScheme.Reference.Id, jwtScheme);
+                config.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {jwtScheme, Array.Empty<string>() }
+                });
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);

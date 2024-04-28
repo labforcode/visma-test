@@ -1,4 +1,4 @@
-﻿namespace Visma.HR.Infra.CrossCutting.Common.Enums
+﻿namespace Visma.Core.Infra.CrossCutting.Common.Enums
 {
     public enum NotificationType
     {

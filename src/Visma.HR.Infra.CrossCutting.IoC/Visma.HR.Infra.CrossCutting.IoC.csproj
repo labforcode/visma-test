@@ -21,9 +21,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Visma.Core.Infra.CrossCutting.Common\Visma.Core.Infra.CrossCutting.Common.csproj" />
 	  <ProjectReference Include="..\Visma.HR.Application\Visma.HR.Application.csproj" />
 	  <ProjectReference Include="..\Visma.HR.Infra.CrossCutting.Bus\Visma.HR.Infra.CrossCutting.Bus.csproj" />
-	  <ProjectReference Include="..\Visma.HR.Infra.CrossCutting.Common\Visma.HR.Infra.CrossCutting.Common.csproj" />
 	  <ProjectReference Include="..\Visma.HR.Infra.Data\Visma.HR.Infra.Data.csproj" />
 	</ItemGroup>
 

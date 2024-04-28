@@ -1,5 +1,5 @@
 ﻿using FluentValidation.Results;
-using Visma.HR.Infra.CrossCutting.Common.Enums;
+using Visma.Core.Infra.CrossCutting.Common.Enums;
 
 namespace Visma.HR.Domain.Core.Notifications
 {

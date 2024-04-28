@@ -1,8 +1,8 @@
 ﻿using FluentValidation.Results;
+using Visma.Core.Infra.CrossCutting.Common.Constants;
+using Visma.Core.Infra.CrossCutting.Common.Enums;
 using Visma.HR.Domain.Core.Interfaces.UoW;
 using Visma.HR.Domain.Core.Notifications;
-using Visma.HR.Infra.CrossCutting.Common.Constants;
-using Visma.HR.Infra.CrossCutting.Common.Enums;
 
 namespace Visma.HR.Domain.Commands
 {

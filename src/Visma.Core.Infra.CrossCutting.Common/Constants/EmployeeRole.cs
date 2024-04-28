@@ -1,4 +1,4 @@
-﻿namespace Visma.HR.Infra.CrossCutting.Common.Lists
+﻿namespace Visma.Core.Infra.CrossCutting.Common.Constants
 {
     public static class EmployeeRole
     {

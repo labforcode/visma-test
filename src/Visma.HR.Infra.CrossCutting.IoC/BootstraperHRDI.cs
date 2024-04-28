@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Visma.Core.Infra.CrossCutting.Common.Sections;
 using Visma.HR.Domain.Core.Interfaces.Bus;
 using Visma.HR.Domain.Core.Notifications;
 using Visma.HR.Infra.CrossCutting.Bus;
-using Visma.HR.Infra.CrossCutting.Common.Settings;
 
 namespace Visma.HR.Infra.CrossCutting.IoC
 {
-    public class BootstraperDI
+    public class BootstraperHRDI
     {
         public static void Injector(IServiceCollection services, IConfiguration configuration)
         {
@@ -22,10 +22,6 @@ namespace Visma.HR.Infra.CrossCutting.IoC
             services.RegisterUoW();
             services.RegisterCommands();
             services.RegisterRepositories();
-
-
-            //TO DO
-            //services.AddScoped<ITokenService, TokenService>();
         }
     }
 }

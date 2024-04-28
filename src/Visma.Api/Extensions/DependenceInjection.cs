@@ -1,4 +1,5 @@
-﻿using Visma.HR.Infra.CrossCutting.IoC;
+﻿using Visma.Core.Infra.CrossCutting.IoC;
+using Visma.HR.Infra.CrossCutting.IoC;
 
 namespace Visma.HR.Api.Extensions
 {
@@ -8,7 +9,8 @@ namespace Visma.HR.Api.Extensions
         ///<inheritdoc/>
         public static void AddNativeDependenceInjection(this IServiceCollection services, IConfiguration configuration)
         {
-            BootstraperDI.Injector(services, configuration);
+            BootstraperCoreDI.Injector(services);
+            BootstraperHRDI.Injector(services, configuration);
         }
     }
 }

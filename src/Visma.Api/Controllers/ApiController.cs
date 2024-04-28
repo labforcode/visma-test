@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Visma.HR.Api.DTOs.Common;
 using Visma.HR.Domain.Core.Notifications;
 
 namespace Visma.HR.Api.Controllers
 {
     /// <inheritdoc/>
-    //[Authorize]
+    [Authorize]
     [ApiController]
     public class ApiController : ControllerBase
     {

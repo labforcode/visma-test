@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
+using Visma.Core.Infra.CrossCutting.Common.Constants;
+using Visma.Core.Infra.CrossCutting.Common.Enums;
 using Visma.HR.Api.DTOs.Common;
 using Visma.HR.Domain.Core.Notifications;
-using Visma.HR.Infra.CrossCutting.Common.Constants;
-using Visma.HR.Infra.CrossCutting.Common.Enums;
 
 namespace Visma.HR.Api.Filters
 {

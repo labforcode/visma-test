@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Visma.HR.Infra.CrossCutting.Common\Visma.HR.Infra.CrossCutting.Common.csproj" />
+	  <ProjectReference Include="..\Visma.Core.Infra.CrossCutting.Common\Visma.Core.Infra.CrossCutting.Common.csproj" />
 	</ItemGroup>
 
 	

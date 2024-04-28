@@ -1,10 +1,10 @@
 ﻿using MediatR;
+using Visma.Core.Infra.CrossCutting.Common.Constants;
 using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Interfaces.UoW;
 using Visma.HR.Domain.Core.Notifications;
 using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
 using Visma.HR.Domain.Interfaces.Repositories.EFCore.Employees;
-using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Domain.Commands.Employees.Handlers
 {

@@ -5,9 +5,9 @@ namespace Visma.HR.Infra.Data.UoW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly CoreContext _context;
+        private readonly HumanResourcesContext _context;
 
-        public UnitOfWork(CoreContext context)
+        public UnitOfWork(HumanResourcesContext context)
         {
             _context = context;
         }

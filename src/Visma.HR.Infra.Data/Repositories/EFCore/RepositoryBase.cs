@@ -6,10 +6,10 @@ namespace Visma.HR.Infra.Data.Repositories.EFCore
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        protected readonly CoreContext Context;
+        protected readonly HumanResourcesContext Context;
         private readonly DbSet<T> _dbSet;
 
-        public RepositoryBase(CoreContext context)
+        public RepositoryBase(HumanResourcesContext context)
         {
             Context = context;
             _dbSet = context.Set<T>();

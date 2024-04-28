@@ -111,7 +111,6 @@ namespace Visma.HR.Api.Controllers.Employees
         {
             try
             {
-                //TO DO
                 await _employeeAppService.DeletingEmployeeAsync(id);
 
                 //TO DO melhorar o retorno

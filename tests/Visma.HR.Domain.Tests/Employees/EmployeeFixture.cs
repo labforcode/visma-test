@@ -1,7 +1,7 @@
 ﻿using Bogus;
+using Visma.Core.Infra.CrossCutting.Common.Constants;
 using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Entities.Employees;
-using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Domain.Tests.Employees
 {

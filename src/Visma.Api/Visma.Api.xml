@@ -162,6 +162,18 @@
         <member name="M:Visma.HR.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <inheritdoc/>
         </member>
+        <member name="T:Visma.Api.Controllers.Auths.AuthController">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Controllers.Auths.AuthController.#ctor(Visma.HR.Domain.Core.Notifications.NotificationContext,Visma.Core.Infra.CrossCutting.Security.Interfaces.ITokenService)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Controllers.Auths.AuthController.GenerateToken">
+            <summary>
+            Generate token to consume API
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TCash.WebApi.Program">
             <inheritdoc/>
         </member>

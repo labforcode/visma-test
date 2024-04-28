@@ -1,7 +1,7 @@
-﻿using Visma.HR.Domain.Commands.Employees.Actions;
+﻿using Visma.Core.Infra.CrossCutting.Common.Constants;
+using Visma.HR.Domain.Commands.Employees.Actions;
 using Visma.HR.Domain.Core.Entities;
 using Visma.HR.Domain.Validators.Employees.Actions;
-using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Domain.Entities.Employees
 {

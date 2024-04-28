@@ -1,4 +1,4 @@
-﻿namespace Visma.HR.Infra.CrossCutting.Common.Constants
+﻿namespace Visma.Core.Infra.CrossCutting.Common.Constants
 {
     public class DefaultMessages
     {

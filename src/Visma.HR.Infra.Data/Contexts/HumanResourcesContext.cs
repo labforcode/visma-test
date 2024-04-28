@@ -4,11 +4,11 @@ using Visma.HR.Infra.Data.Mappings.Employees;
 
 namespace Visma.HR.Infra.Data.Contexts
 {
-    public class CoreContext : DbContext
+    public class HumanResourcesContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
 
-        public CoreContext(DbContextOptions<CoreContext> options) : base(options) { }
+        public HumanResourcesContext(DbContextOptions<HumanResourcesContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

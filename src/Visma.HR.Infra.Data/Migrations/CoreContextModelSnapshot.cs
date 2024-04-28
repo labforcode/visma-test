@@ -10,7 +10,7 @@ using Visma.HR.Infra.Data.Contexts;
 
 namespace Visma.HR.Infra.Data.Migrations
 {
-    [DbContext(typeof(CoreContext))]
+    [DbContext(typeof(HumanResourcesContext))]
     partial class CoreContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

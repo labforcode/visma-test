@@ -1,7 +1,7 @@
 ﻿using Npgsql;
 using System.Data;
+using Visma.Core.Infra.CrossCutting.Common.Sections;
 using Visma.HR.Domain.Core.Interfaces.Repositories.Dapper;
-using Visma.HR.Infra.CrossCutting.Common.Settings;
 
 namespace Visma.HR.Infra.Data.Repositories.Dapper
 {

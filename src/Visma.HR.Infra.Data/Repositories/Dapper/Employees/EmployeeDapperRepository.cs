@@ -1,7 +1,7 @@
 ﻿using Dapper;
+using Visma.Core.Infra.CrossCutting.Common.Constants;
 using Visma.HR.Domain.Entities.Employees;
 using Visma.HR.Domain.Interfaces.Repositories.Dapper.Employees;
-using Visma.HR.Infra.CrossCutting.Common.Lists;
 
 namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
 {
@@ -104,7 +104,7 @@ namespace Visma.HR.Infra.Data.Repositories.Dapper.Employees
 
                 var filters = new DynamicParameters();
                 filters.Add("@role", EmployeeRole.ChiefExecutiveOfficer);
-                if(id != Guid.Empty)
+                if (id != Guid.Empty)
                 {
                     query = $@"{query}
                                 AND e.id <> @employee_id;";
