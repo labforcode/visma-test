@@ -10,17 +10,15 @@ namespace Visma.Core.Infra.CrossCutting.Security.Services
 {
     public class TokenService : ITokenService
     {
-        private readonly SettingsDto _settings = AppSettingsDto.Settings;
-
         /// <inheritdoc/>
         public TokenModel GenerateToken()
         {
             try
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_settings.Security.Key);
-                var tokenValidForMinutes = Convert.ToInt32(_settings.Security.TokenValidForMinutes);
-                var refreshTokenValidForMinutes = Convert.ToInt32(_settings.Security.RefreshTokenValidForMinutes);
+                var key = Encoding.ASCII.GetBytes(AppSettingsDto.Settings.Security.Key);
+                var tokenValidForMinutes = Convert.ToInt32(AppSettingsDto.Settings.Security.TokenValidForMinutes);
+                var refreshTokenValidForMinutes = Convert.ToInt32(AppSettingsDto.Settings.Security.RefreshTokenValidForMinutes);
                 var currentDate = DateTime.Now;
                 var tokenExpiresIn = currentDate.AddMinutes(tokenValidForMinutes);
                 var refreshToken = GenerateRefreshToken();
@@ -57,7 +55,7 @@ namespace Visma.Core.Infra.CrossCutting.Security.Services
         {
             return new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, _settings.Security.Subject),
+                new Claim(JwtRegisteredClaimNames.Sub, AppSettingsDto.Settings.Security.Subject),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()),
             };
