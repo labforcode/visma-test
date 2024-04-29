@@ -145,6 +145,7 @@ namespace Visma.HR.Api.Controllers.Employees
         /// <param name="name"></param>
         /// <param name="startBirthDate"></param>
         /// <param name="endBirthDate"></param>
+        /// <param name="role"></param>
         /// <param name="bossId"></param>
         /// <param name="pageSize"></param>
         /// <param name="index"></param>

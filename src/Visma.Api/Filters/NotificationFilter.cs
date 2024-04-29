@@ -41,7 +41,7 @@ namespace Visma.HR.Api.Filters
             _notificationContext.ClearNotifications();
         }
 
-        private int DefineStatusCode(NotificationType type) => type switch
+        private static int DefineStatusCode(NotificationType type) => type switch
         {
             NotificationType.Failure => (int)HttpStatusCode.BadRequest,
             _ => (int)HttpStatusCode.OK
