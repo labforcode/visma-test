@@ -24,10 +24,10 @@ COPY ["src/Visma.HR.Infra.Data/Visma.HR.Infra.Data.csproj", "src/Visma.HR.Infra.
 RUN dotnet restore "src/Visma.Api/Visma.Api.csproj"
 COPY . .
 WORKDIR "/src/Visma.Api"
-RUN dotnet build "Visma.Api.csproj" -c Release -o /app/build
+RUN dotnet build "Visma.Api.csproj" -c Debug -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Visma.Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "Visma.Api.csproj" -c Debug -o /app/publish
 
 FROM base AS final
 WORKDIR /app
