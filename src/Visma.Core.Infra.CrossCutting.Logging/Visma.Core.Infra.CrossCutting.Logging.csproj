@@ -28,10 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Visma.Core.Infra.CrossCutting.Common\Visma.Core.Infra.CrossCutting.Common.csproj" />
   </ItemGroup>
 
