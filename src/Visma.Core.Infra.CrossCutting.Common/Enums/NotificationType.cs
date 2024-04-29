@@ -3,7 +3,6 @@
     public enum NotificationType
     {
         Success,
-        Failure,
-        Exception
+        Failure
     }
 }

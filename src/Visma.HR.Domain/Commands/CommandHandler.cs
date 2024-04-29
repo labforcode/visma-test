@@ -20,11 +20,17 @@ namespace Visma.HR.Domain.Commands
 
         protected bool Commit()
         {
-            if (_notificationContext.HasNotifications) return false;
-            if (_uow.Commit()) return true;
+            try
+            {
+                if (_notificationContext.HasNotifications) return false;
+                if (_uow.Commit()) return true;
 
-            ExceptionNotify();
-            return false;
+                return false;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public void SuccessNotify(string message = "")
@@ -44,12 +50,6 @@ namespace Visma.HR.Domain.Commands
         public void FailNotify(ValidationResult errors)
         {
             _notificationContext.Notify(errors);
-        }
-
-        public void ExceptionNotify()
-        {
-            var error = DefaultMessages.Exception;
-            _notificationContext.Notify(NotificationType.Exception, error);
         }
     }
 }

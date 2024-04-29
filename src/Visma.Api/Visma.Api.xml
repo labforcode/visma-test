@@ -16,7 +16,7 @@
         <member name="M:Visma.HR.Api.Controllers.ApiController.ResponseOk(System.Object,System.Int32)">
             <inheritdoc/>
         </member>
-        <member name="M:Visma.HR.Api.Controllers.ApiController.ResponseCreated">
+        <member name="M:Visma.HR.Api.Controllers.ApiController.ResponseBadRequest(System.String)">
             <inheritdoc/>
         </member>
         <member name="T:Visma.HR.Api.Controllers.Employees.EmployeeController">
@@ -105,6 +105,9 @@
         <member name="M:Visma.HR.Api.DTOs.Common.ResponseDto.CreateResponseToNotification(System.Int32,System.String)">
             <inheritdoc/>
         </member>
+        <member name="M:Visma.HR.Api.DTOs.Common.ResponseDto.CreateResponseToFailure(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
         <member name="M:Visma.HR.Api.DTOs.Common.ResponseDto.CreateResponseToError(System.Int32,System.String)">
             <inheritdoc/>
         </member>
@@ -173,6 +176,12 @@
             Generate token to consume API
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Visma.Api.Filters.ExceptionFilter">
+            <inheritdoc/>
+        </member>
+        <member name="M:Visma.Api.Filters.ExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <inheritdoc/>
         </member>
         <member name="T:TCash.WebApi.Program">
             <inheritdoc/>

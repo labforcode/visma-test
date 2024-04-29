@@ -36,8 +36,7 @@ namespace Visma.HR.Api.Controllers.Employees
 
                 await _employeeAppService.AddingEmployeeAsync(dto);
 
-                //TO DO melhorar o retorno
-                return ResponseCreated();
+                return ResponseOk();
             }
             catch
             {
@@ -64,7 +63,6 @@ namespace Visma.HR.Api.Controllers.Employees
 
                 await _employeeAppService.UpdatingEmployeeAsync(dto);
 
-                //TO DO melhorar o retorno
                 return ResponseOk();
             }
             catch
@@ -92,7 +90,6 @@ namespace Visma.HR.Api.Controllers.Employees
 
                 await _employeeAppService.UpdatingEmployeeSalaryAsync(dto);
 
-                //TO DO melhorar o retorno
                 return ResponseOk();
             }
             catch
@@ -113,7 +110,6 @@ namespace Visma.HR.Api.Controllers.Employees
             {
                 await _employeeAppService.DeletingEmployeeAsync(id);
 
-                //TO DO melhorar o retorno
                 return ResponseOk();
             }
             catch

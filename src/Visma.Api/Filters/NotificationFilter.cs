@@ -44,7 +44,6 @@ namespace Visma.HR.Api.Filters
         private int DefineStatusCode(NotificationType type) => type switch
         {
             NotificationType.Failure => (int)HttpStatusCode.BadRequest,
-            NotificationType.Exception => (int)HttpStatusCode.InternalServerError,
             _ => (int)HttpStatusCode.OK
         };
 
@@ -55,7 +54,7 @@ namespace Visma.HR.Api.Filters
             return type switch
             {
                 NotificationType.Success => ResponseDto.CreateResponseToNotification(code, message),
-                _ => ResponseDto.CreateResponseToError(code, message)
+                _ => ResponseDto.CreateResponseToFailure(code, message)
             };
         }
     }

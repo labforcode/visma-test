@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Visma.Core.Infra.CrossCutting.Common.Enums;
 using Visma.HR.Api.DTOs.Common;
 using Visma.HR.Domain.Core.Notifications;
 
 namespace Visma.HR.Api.Controllers
 {
     /// <inheritdoc/>
-    [Authorize]
+    //[Authorize]
     [ApiController]
     public class ApiController : ControllerBase
     {
@@ -21,7 +21,13 @@ namespace Visma.HR.Api.Controllers
         /// <inheritdoc/>
         protected void NotifyModelStateErrors()
         {
-            //TO DO 
+            var errors = ModelState.Values.SelectMany(value => value.Errors);
+            foreach (var error in errors)
+            {
+                var notificationType = NotificationType.Failure;
+                var errorMsg = error.ErrorMessage;
+                _notificationContext.Notify(notificationType, errorMsg);
+            }
         }
 
         /// <inheritdoc/>
@@ -33,6 +39,9 @@ namespace Visma.HR.Api.Controllers
         }
 
         /// <inheritdoc/>
-        protected IActionResult ResponseCreated() => Created("", null);
+        protected IActionResult ResponseBadRequest(string message)
+        {
+            return BadRequest(message);
+        }
     }
 }

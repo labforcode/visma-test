@@ -11,9 +11,11 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 4 - Então, executar o comando abaixo para gerar o Migration, de acordo com o ambiente setado anteriormente
 dotnet ef migrations add development --context CoreContext -s D:\lab4code\estudos\backend\c#\VismaTest\Test\src\Visma.Api --verbose
+dotnet ef migrations add development --context LogContext -s D:\lab4code\estudos\backend\c#\VismaTest\Test\src\Visma.Api --verbose
 
 5 - Após a geração do Migration, executar o comando abaixo para atualizar a DataBase
 dotnet ef database update --context CoreContext -s D:\lab4code\estudos\backend\c#\VismaTest\Test\src\Visma.Api --verbose
+dotnet ef database update --context LogContext -s D:\lab4code\estudos\backend\c#\VismaTest\Test\src\Visma.Api --verbose
 
 
 ## Criar uma rede especial em modo bridge

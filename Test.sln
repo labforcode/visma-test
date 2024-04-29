@@ -54,11 +54,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6831982C-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{0F7933CA-FF64-483E-97C5-D615B822BA8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.Core.Infra.CrossCutting.IoC", "src\Visma.Core.Infra.CrossCutting.IoC\Visma.Core.Infra.CrossCutting.IoC.csproj", "{E90303C4-77CD-48A6-98B8-16CE0184CE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.Core.Infra.CrossCutting.IoC", "src\Visma.Core.Infra.CrossCutting.IoC\Visma.Core.Infra.CrossCutting.IoC.csproj", "{E90303C4-77CD-48A6-98B8-16CE0184CE7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.Core.Infra.CrossCutting.Security", "src\Visma.Core.Infra.CrossCutting.Security\Visma.Core.Infra.CrossCutting.Security.csproj", "{E26820DB-F5EA-4B2B-8EB5-0E759D4440CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.Core.Infra.CrossCutting.Security", "src\Visma.Core.Infra.CrossCutting.Security\Visma.Core.Infra.CrossCutting.Security.csproj", "{E26820DB-F5EA-4B2B-8EB5-0E759D4440CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.Core.Infra.CrossCutting.Common", "src\Visma.Core.Infra.CrossCutting.Common\Visma.Core.Infra.CrossCutting.Common.csproj", "{05C4C0B7-BA61-4929-B6B3-2E3CD176E14E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Visma.Core.Infra.CrossCutting.Common", "src\Visma.Core.Infra.CrossCutting.Common\Visma.Core.Infra.CrossCutting.Common.csproj", "{05C4C0B7-BA61-4929-B6B3-2E3CD176E14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma.Core.Infra.CrossCutting.Logging", "src\Visma.Core.Infra.CrossCutting.Logging\Visma.Core.Infra.CrossCutting.Logging.csproj", "{B1D1BFB4-F2AE-4F87-8A1D-C4B6990AE382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +112,10 @@ Global
 		{05C4C0B7-BA61-4929-B6B3-2E3CD176E14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05C4C0B7-BA61-4929-B6B3-2E3CD176E14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05C4C0B7-BA61-4929-B6B3-2E3CD176E14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D1BFB4-F2AE-4F87-8A1D-C4B6990AE382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D1BFB4-F2AE-4F87-8A1D-C4B6990AE382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D1BFB4-F2AE-4F87-8A1D-C4B6990AE382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D1BFB4-F2AE-4F87-8A1D-C4B6990AE382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -139,6 +145,7 @@ Global
 		{E90303C4-77CD-48A6-98B8-16CE0184CE7E} = {0F7933CA-FF64-483E-97C5-D615B822BA8A}
 		{E26820DB-F5EA-4B2B-8EB5-0E759D4440CB} = {0F7933CA-FF64-483E-97C5-D615B822BA8A}
 		{05C4C0B7-BA61-4929-B6B3-2E3CD176E14E} = {0F7933CA-FF64-483E-97C5-D615B822BA8A}
+		{B1D1BFB4-F2AE-4F87-8A1D-C4B6990AE382} = {0F7933CA-FF64-483E-97C5-D615B822BA8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F05028D4-538C-43A6-9962-4AA34671834B}

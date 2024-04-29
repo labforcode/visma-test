@@ -30,12 +30,12 @@ namespace Visma.Api.Controllers.Auths
         {
             try
             {
-                if (Request.Headers.ContainsKey("KeyRequest") is false) return BadRequest("Unable to generate token");
+                if (Request.Headers.ContainsKey("KeyRequest") is false) return ResponseBadRequest("Unable to generate token");
 
                 var keyRequest = Request.Headers["KeyRequest"][0];
                 var keySettings = AppSettingsDto.Settings.Security.KeyRequest;
 
-                if (string.IsNullOrEmpty(keyRequest) || keyRequest != keySettings) return BadRequest("Unable to generate token");
+                if (string.IsNullOrEmpty(keyRequest) || keyRequest != keySettings) return ResponseBadRequest("Unable to generate token");
 
                 return ResponseOk(_tokenService.GenerateToken());
             }

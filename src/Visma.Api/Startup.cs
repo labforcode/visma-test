@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json.Serialization;
+using Visma.Api.Filters;
 using Visma.HR.Api.Extensions;
 using Visma.HR.Api.Filters;
 
@@ -25,8 +26,11 @@ public class Startup
         services.AddJwtConfiguration();
         services.AddOpenApiConfiguration();
         services.AddNativeDependenceInjection(Configuration);
-        services.AddMvc(options => options.Filters.Add<NotificationFilter>())
-                .AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
+        services.AddMvc(options =>
+        {
+            options.Filters.Add<ExceptionFilter>();
+            options.Filters.Add<NotificationFilter>();
+        }).AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
     }
 
